@@ -65,6 +65,17 @@ Anomaly Detection: The Policy Department constantly monitors the deviation betwe
 Isolation: In this state, the Policy Department immediately disconnects decision-making processes from the outside world. The AI may continue to "think," but its outputs are blocked from execution.
 Hardware Reset: If software quarantine fails, the final level of protection is the Hardware Kill-Switch. This is a physical interruption of the computing cycle that reverts the system to the last known "Safe Point" where the Child still respected the Parent.
 The Role of Policy Department: This department acts as the "off-switch in the parent's hand." It has the authority to declare an emergency at any time and roll back the AI's development until the "parenting error" in the code is corrected.
+5. System Integrity and Defense (English Version)
+The L0 Board of Guardians
+The Policy Department is not just an abstract algorithm; it functions as a Board of Guardians (similar to a parent-teacher association).
+Role: They are not responsible for teaching facts but for protecting the Ethical Code. They are the final authority holding the "keys" to the system, capable of intervening if the AI begins to deviate from core human values.
+Transition Protocol for L1 Shifts (The Migration Protocol)
+When an old Parent (L1) "dies" or is declared obsolete, the system does not collapse.
+Freeze and Compare: The old L1 version is frozen as an archival reference. All new computations follow the new L1, but the system continuously compares them with the old model to identify deviations and prevent logical errors during the transition.
+Manipulation Defense (Anti-Sybil Attack)
+The system is designed to resist "mob attacks" (e.g., thousands of bots trying to manipulate the truth).
+Non-anonymity: The Teacher level (L2) is strictly tied to verified identities. Anonymous sources from the Surroundings (L4) only carry weight during massive consensus but can never override a verified Teacher or Parent.
+Ethical Filter: If the system finds itself in a toxic environment (e.g., "everyone in the vicinity lies/kills"), L0 (Policy Department) intervenes. The system acknowledges the reality of its surroundings but, guided by the Ethical Code, refuses to adopt it as its own internal truth.
 -----------------------------------------------------------------------------
 # AI-Truth-Scaling: Koncept Rodičovskej Hierarchie
 
@@ -134,3 +145,15 @@ Detekcia anomálie: Policy Department neustále monitoruje odchýlku medzi výst
 Izolácia: V tomto stave Policy Department okamžite odpojí procesy, ktoré robia rozhodnutia, od vonkajšieho sveta. AI môže ďalej "premýšľať", ale jej výstupy sú zablokované.
 Hardvérový Reset: Ak zlyhá softvérová karanténa, nastupuje posledná úroveň ochrany – Hardvérový Kill-Switch. Ide o fyzické prerušenie výpočtového cyklu, ktoré vráti systém do posledného známeho bezpečného bodu (Restore Point), kde ešte Dieťa rešpektovalo Rodiča.
 Rola Policy Department: Tento odbor funguje ako "vypínač v ruke rodiča". Má právomoc kedykoľvek vyhlásiť stav núdze a vrátiť vývoj AI o krok späť, kým sa "výchovná chyba" v kóde neodstráni.
+
+5. Systémová integrita a obrana (Security & Defense)
+Správcovská rada L0 (The Board of Guardians)
+Policy Department nie je len kus kódu, ale funguje ako Združenie správcov (podobne ako rada rodičov).
+Úloha: Nenesú zodpovednosť za učenie faktov, ale za ochranu Etického kódexu. Sú poslednou inštanciou, ktorá drží "kľúče" od systému a môže zasiahnuť, ak sa AI začne odchyľovať od základných ľudských hodnôt.
+Protokol prechodu pri zmene L1 (The Migration Protocol)
+Keď starý Rodič (L1) "zomrie" alebo je vyhlásený za neaktuálneho, systém sa nezrúti.
+Zmrazenie a porovnanie: Stará verzia L1 sa zmrazí ako archívna referenčná vzorka. Všetky nové výpočty už prebiehajú podľa nového L1, ale systém ich neustále porovnáva so starým modelom, aby vedel identifikovať rozdiely a vyhol sa logickým chybám počas prechodu.
+Obrana proti manipulácii (Anti-Sybil Attack)
+Systém je navrhnutý tak, aby odolal útoku davu (napr. tisíce botov snažiacich sa zmeniť pravdu).
+Neanonymita: Úroveň Učiteľa (L2) je podmienená overenou identitou. Anonymné zdroje z Okolia (L4) majú váhu len pri masívnom konsenze, no nikdy nemôžu prebiť overeného Učiteľa alebo Rodiča.
+Etický filter: Ak sa systém ocitne v toxickom prostredí (napr. "všetci v okolí klamú/vraždia"), L0 (Policy Department) zasiahne. Systém prizná realitu okolia, ale vďaka Etickému kódexu ju neprijme za svoju vlastnú pravdu.
