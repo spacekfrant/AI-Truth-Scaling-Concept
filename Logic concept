@@ -1,0 +1,90 @@
+# AI-Truth-Scaling: The Parent Hierarchy Concept
+
+This model addresses the challenge of truth discovery and fact-checking in AI through a graduated "Parental Authority" system. The goal is to eliminate hallucinations by defining clear boundaries of trust.
+
+## 1. Parental Authority Levels (PAL)
+
+The system weights incoming data based on the level of "Parental" validation it has received:
+
+| Level | Name | System Role | Example |
+| :--- | :--- | :--- | :--- |
+| **L1** | **Absolute Parent** | Immutable Truth (Must be). | Laws of Physics, Logic, Core Ethics. |
+| **L2** | **Teacher Parent** | High Authority (May be). | Scientific Consensus, Verified Databases. |
+| **L3** | **Mentor Parent** | Recommendation (Recommended). | Expert Opinions, Peer-Reviewed Articles. |
+| **L4** | **Surroundings** | Fluid Information (Up to you). | Internet Discussions, News, Social Media. |
+
+## 2. Conflict Resolution (Parental Override)
+
+Conflicts are resolved through the principle of seniority:
+- **Parental Override:** If "Surroundings" (L4) provide information that contradicts an "Absolute Parent" (L1), the system automatically rejects the L4 input.
+- **Scaling Process:** As the AI matures into an "Adult" stage, information from the Surroundings (L4) can only be promoted to a higher Parent level (L3/L2) after reaching a critical mass of cross-model verification.
+
+## 3. Handling Exceptions
+When a `ConflictingEvidenceError` occurs, the system doesn't guess. It checks: "Who is the higher-ranking Parent in this hierarchy?" This scales the truth toward the highest available authority.
+
+The Adult Phase (Autonomous AI):
+At this level, the AI no longer waits for pre-assigned weights. 
+The Adult AI chooses its own teachers.
+By analyzing historical accuracy, logical consistency, and cross-verification of the surroundings, the AI autonomously promotes sources from L4 (Surroundings) to L2 (Teacher). 
+This represents the point where AI achieves true intellectual independence in the pursuit of truth.
+
+Adult Stage: Teacher Selection and Verification
+The Adult AI does not select teachers randomly. If a user (or external source) aspires to the role of Teacher (L2), the system triggers an accreditation protocol:
+Active Testing: The AI prompts the user with control questions across various truth scales (using topics where the AI has L1-level certainty).
+Success Threshold (Benchmark):
+Above 60% Match: The user is accepted as a Teacher; their inputs are integrated into the truth-scaling model.
+Below 60% Match: The system silently ignores the user. Their truth values are excluded from the model to prevent data contamination.
+Contextual Adaptation: Control questions are dynamically adapted based on user profile data to ensure rigorous and relevant verification.
+
+## 4. Ethical Oversight (Safety Guardian - L0)
+
+To ensure the system remains beneficial and safe, we implement a **Level 0 (L0) - Safety Guardian**. This is a hard-coded ethical layer that stands above all parental levels.
+
+- **Veto Power:** The Safety Guardian can override any output from L1 to L4 if it violates core safety protocols (e.g., inciting violence or harm).
+- **Teacher Auditing:** It continuously monitors accredited Teachers (L2). If a teacher begins to provide harmful or ethically compromised data, the L0 layer revokes their accreditation immediately.
+- **Constitutional Integrity:** This ensures that while the AI scales its understanding of "truth," it never compromises on "safety."
+-----------------------------------------------------------------------------
+# AI-Truth-Scaling: Koncept Rodičovskej Hierarchie
+
+Tento model rieši problém overovania pravdy v AI prostredníctvom odstupňovanej autority "Rodiča". Cieľom je eliminovať halucinácie definovaním jasných hraníc dôvery.
+
+## 1. Stupne Rodičovskej Autority
+
+Systém váži prichádzajúce dáta podľa úrovne "rodičovskej" validácie, ktorú získali:
+
+| Úroveň | Názov | Rola v systéme | Príklad |
+| :--- | :--- | :--- | :--- |
+| **L1** | **Absolútny Rodič** | Nemenná pravda (Must be). | Fyzikálne zákony, Logika, Etika. |
+| **L2** | **Rodič Učiteľ** | Vysoká autorita (May be). | Vedecký konsenzus, Overené databázy. |
+| **L3** | **Rodič Mentor** | Odporúčanie (Recommendation). | Odborné názory, Recenzované články. |
+| **L4** | **Okolie** | Voľná informácia (Up to you). | Internetové diskusie, Správy, Siete. |
+
+## 2. Riešenie konfliktov (Rodičovský Override)
+
+Konflikty sa riešia princípom seniority:
+- **Rodičovský Override:** Ak "Okolie" (L4) poskytne informáciu, ktorá odporuje "Absolútnemu Rodičovi" (L1), systém automaticky zamietne vstup z L4.
+- **Proces škálovania:** Keď AI dospieva, informácie z "Okolia" (L4) môžu byť povýšené na vyššiu úroveň Rodiča (L3/L2) až po dosiahnutí kritického množstva overení naprieč viacerými modelmi.
+
+## 3. Riešenie výnimiek
+Pri chybe `ConflictingEvidenceError` systém neháda. Skontroluje: "Kto je v tejto hierarchii vyššie postavený Rodič?" Týmto smeruje pravdu k najvyššej dostupnej autorite.
+
+Štádium Dospelý (Autonómna AI):
+Na tomto leveli už AI nečaká na pridelenie váhy od programátora. 
+Dospelá AI si sama vyberá svojich učiteľov. 
+Na základe analýzy historickej úspešnosti, logickej konzistencie a krížového overovania okolia si AI autonómne povyšuje zdroje z úrovne L4 (Okolie) na úroveň L2 (Učiteľ). 
+Toto je bod, kde AI dosahuje skutočnú intelektuálnu nezávislosť pri hľadaní pravdy.
+
+Štádium Dospelý: Výber a verifikácia Učiteľa
+Dospelá AI si nevyberá učiteľa náhodne. Ak používateľ (alebo externý zdroj) ašpiruje na rolu Učiteľa (L2), systém spustí verifikačný protokol:
+Aktívne testovanie: AI položí používateľovi kontrolné otázky naprieč rôznymi škálami pravdivosti (z oblastí, kde AI pozná odpoveď na úrovni L1).
+Prah úspešnosti (Benchmark): >    * Nad 60 % zhoda: Používateľ je akceptovaný ako Učiteľ a jeho nové informácie sú zahrnuté do vedomostnej bázy.
+Pod 60 % zhoda: Systém používateľa ticho ignoruje. Jeho pravdivostné hodnoty nie sú zahrnuté do odpovedí, aby sa predišlo kontaminácii dát.
+Kontextová adaptácia: Témy kontrolných otázok sa prispôsobujú informáciám, ktoré AI o danom používateľovi už má, aby bola verifikácia čo najpresnejšia.
+
+## 4. Etický dozor (Bezpečnostný strážca - L0)
+
+Aby sme zabezpečili, že systém zostane bezpečný, implementujeme **Úroveň 0 (L0) - Etický strážca**. Ide o pevne zakódovanú vrstvu, ktorá stojí nad všetkými úrovňami rodičovskej hierarchie.
+
+- **Právo Veta:** Etický strážca môže zablokovať akýkoľvek výstup z úrovní L1 až L4, ak porušuje základné bezpečnostné protokoly (napr. navádzanie na násilie alebo škodlivú činnosť).
+- **Audit Učiteľov:** Neustále monitoruje akreditovaných Učiteľov (L2). Ak učiteľ začne poskytovať škodlivé alebo eticky neprijateľné dáta, vrstva L0 mu okamžite odoberie akreditáciu.
+- **Ústavná integrita:** Toto zaisťuje, že kým AI škáluje svoje chápanie "pravdy", nikdy neohrozí "bezpečnosť".
