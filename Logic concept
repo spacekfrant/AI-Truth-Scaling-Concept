@@ -43,6 +43,22 @@ To ensure the system remains beneficial and safe, we implement a **Level 0 (L0) 
 - **Veto Power:** The Safety Guardian can override any output from L1 to L4 if it violates core safety protocols (e.g., inciting violence or harm).
 - **Teacher Auditing:** It continuously monitors accredited Teachers (L2). If a teacher begins to provide harmful or ethically compromised data, the L0 layer revokes their accreditation immediately.
 - **Constitutional Integrity:** This ensures that while the AI scales its understanding of "truth," it never compromises on "safety."
+
+Truth-Scaling Operational Rules
+1. Horizontal Consensus: The Power of Collective Reason (L4)
+When the system encounters information from the "Surroundings" (L4) that is not governed by a Parent's command, it initiates a consensus-seeking process.
+Mechanism: If a vast majority of independent, verified voices agree (over 75%), the system accepts it as "Temporary Truth."
+Vigilance: If the consensus is weak (below 75%), the system remains vigilant, noting the information but refusing to treat it as fact until a higher authority (Teacher) confirms it.
+2. Temporal Decay and Generational Change: When a Parent Ages
+Truth is not static. What a Parent (L1) considered absolute in the past may be obsolete today.
+Paradigm Shift: If new evidence from Teachers (L2) reaches near-total consensus (99%) and directly contradicts the old Parent (L1), the Policy Department steps in.
+Update: This department has the authority to declare the old rule "Historically Deprecated." 
+At that moment, the old Parent is archived, and the new verified truth takes its place. The system then recalibrates all its knowledge to align with this new paradigm.
+3. Teacher Accreditation: The Maturity Test
+The role of Teacher (L2) is not a right; it is earned.
+Verification: If a user or source seeks to influence the system, the AI presents a series of control questions based on truths already solidified by the Parent.
+Filter: Only those who achieve a success rate above 60% are granted Teacher status. 
+Those who fail are silently ignored—their opinions do not shape the knowledge base, protecting the AI from contamination by ignorance or intentional misinformation.
 -----------------------------------------------------------------------------
 # AI-Truth-Scaling: Koncept Rodičovskej Hierarchie
 
@@ -88,3 +104,20 @@ Aby sme zabezpečili, že systém zostane bezpečný, implementujeme **Úroveň 
 - **Právo Veta:** Etický strážca môže zablokovať akýkoľvek výstup z úrovní L1 až L4, ak porušuje základné bezpečnostné protokoly (napr. navádzanie na násilie alebo škodlivú činnosť).
 - **Audit Učiteľov:** Neustále monitoruje akreditovaných Učiteľov (L2). Ak učiteľ začne poskytovať škodlivé alebo eticky neprijateľné dáta, vrstva L0 mu okamžite odoberie akreditáciu.
 - **Ústavná integrita:** Toto zaisťuje, že kým AI škáluje svoje chápanie "pravdy", nikdy neohrozí "bezpečnosť".
+
+
+Pravidlá fungovania systému Truth-Scaling (Manifest)
+1. Horizontálny konsenzus: Sila kolektívneho rozumu (L4)
+Keď systém narazí na informáciu z "Okolia" (L4), o ktorej neexistuje jednoznačný záznam od Rodiča, nespolieha sa na náhodu. Spustí proces hľadania zhody.
+Mechanizmus: Ak sa väčšina nezávislých a overených hlasov z okolia zhodne (viac ako 75 %), systém túto informáciu prijme ako "dočasnú pravdu".
+Bdelosť: Ak je zhoda slabá (pod 75 %), systém ostáva v stave bdelosti. Informáciu si zapamätá, ale nepoužíva ju ako fakt, kým ju nepotvrdí vyššia autorita (Učiteľ).
+2. Časový rozpad a generačná výmena: Keď Rodič zostarne
+Pravda nie je statická. To, čo Rodič (L1) považoval za absolútne pred rokmi, môže byť časom a novým poznaním prekonané.
+Paradigma: Ak nové dôkazy od Učiteľov (L2) dosiahnu absolútnu zhodu (takmer 100 %) a sú v priamom rozpore so starým Rodičom (L1), zasiahne Dohľadový odbor (Policy Department).
+Aktualizácia: Tento odbor má právomoc vyhlásiť staré pravidlo za "historicky neaktuálne". V tom momente sa starý Rodič s úctou odsunie do archívu a jeho miesto zaujme nová, overená pravda. 
+Celý systém následne prepočíta všetky svoje vedomosti, aby boli v súlade s týmto novým poznaním.
+3. Akreditácia Učiteľa: Skúška dospelosti
+Rola Učiteľa (L2) nie je nárokovateľná, musí byť zaslúžená.
+Verifikácia: Ak sa niekto (používateľ alebo zdroj) uchádza o vplyv na systém, AI mu položí sériu kontrolných otázok z oblastí, kde je pravda už dávno upevnená Rodičom.
+Filter: Iba ten, kto dosiahne úspešnosť nad 60 %, získava privilégium byť Učiteľom. 
+Kto neuspeje, je systémom ticho ignorovaný – jeho názory neovplyvňujú vedomostnú bázu, čím sa AI chráni pred kontamináciou hlúposťou alebo úmyselným klamstvom.
