@@ -1,7 +1,16 @@
-# PROJEKT: AI-Truth-Scaling
-# OPIS: Implementácia hierarchie autority podľa modelu Konzorcium-Rodič-Učiteľ.
+# =========================================================================
+# PROJEKT: AI-TRUTH-SCALING SYSTEM (FULL INTEGRATED VERSION)
+# AUTOR: Konzorcium / Rodič / Učiteľ Model
+# OPIS: Jednotný systém na filtrovanie pravdy a správu hierarchickej autority.
+# =========================================================================
 
-# Definícia autority podľa tvojich úrovní
+import time
+
+# -------------------------------------------------------------------------
+# KOMPONENT 1: Definícia autority a spracovanie informácií
+# -------------------------------------------------------------------------
+
+# SK - Definícia autority podľa tvojich úrovní
 HLADINY_AUTORITY = {
     "L1_KONZORCIUM_RODIČOV": 1.0,  # 100% - Absolútny etický zákon a pravda
     "L0_RODIČ": 0.8,               # 80%  - Správa a prevádzka systému
@@ -9,464 +18,155 @@ HLADINY_AUTORITY = {
     "POUŽÍVATEĽ": 0.01             # 1%   - Verejný vstup / Možný šum a boti
 }
 
+# EN - Authority Definition according to your levels
+AUTHORITY_LEVELS = {
+    "L1_PARENT_CONSORTIUM": 1.0,   # 100% - Absolute ethical law and truth
+    "L0_PARENT": 0.8,              # 80%  - System administration and operation
+    "L2_TEACHER": 0.5,             # 50%  - Accredited expert (requires L3 verification)
+    "USER": 0.01                   # 1%   - Public input / Potential noise and bots
+}
+
 def spracuj_informaciu(rola, obsah, externy_test_pravdy):
+    """
+    SK: Hlavná logika spracovania informácií na základe váhy autority.
+    EN: Main logic for processing information based on authority weight.
+    """
     vaha = HLADINY_AUTORITY.get(rola, 0)
     print(f"\n[VSTUP] Rola: {rola} | Váha: {vaha*100}%")
+    
     # KROK 1: Najvyššia kontrola (Konzorcium rodičov)
     if vaha == 1.0:
         return "VÝSLEDOK: SCHVÁLENÉ (Zápis do Zlatého štandardu - Etický príkaz L1)"
+    
     # KROK 2: Ochrana pred šumom (Používateľ / Bot)
     if vaha <= 0.01:
         return "VÝSLEDOK: ZAHODENÉ (Nedostatočná autorita - Dáta sa neukladajú)"
-    # KROK 3: Overovanie odbornosti (Učiteľ + Truth Scaling L3)
+    
+    # KROK 3: Overovanie odbornosti (Učiteľ + Truth Scaling v L3)
     if vaha == 0.5:
         if externy_test_pravdy > 0.9:
             return "VÝSLEDOK: VERIFIKOVANÉ (Potvrdené externou realitou L3)"
         else:
-            return "VÝSLEDOK: HALUCINÁCIA (Rozpor s realitou - Dáta zahodené)"
+            return "VÝSLEDOK: HALUCINÁCIA (Rozpor s realitou - Dáta zahodené a reportované)"
+            
     return "VÝSLEDOK: CHYBA (Neznáma úroveň autority)"
-____
-# PROJECT: AI-Truth-Scaling
-# DESCRIPTION: Implementation of the authority hierarchy: Consortium-Parent-Teacher.
 
-# Definition of authority based on your levels
-AUTHORITY_LEVELS = {
-    "L1_PARENT_CONSORTIUM": 1.0,  # 100% - Absolute ethical law and truth
-    "L0_PARENT": 0.8,             # 80%  - System administration and operation
-    "L2_TEACHER": 0.5,            # 50%  - Accredited expert (requires L3 verification)
-    "USER": 0.01                  # 1%   - Public input / Potential noise and bots
-}
-
-def process_information(role, content, external_truth_test):
-    weight = AUTHORITY_LEVELS.get(role, 0)
-    print(f"\n[INPUT] Role: {role} | Weight: {weight*100}%")
-    # STEP 1: Highest Control (Parent Consortium)
-    if weight == 1.0:
-        return "RESULT: APPROVED (Written to Golden Standard - L1 Ethical Mandate)"
-    # STEP 2: Noise Protection (User / Bot)
-    if weight <= 0.01:
-        return "RESULT: DISCARDED (Insufficient authority - No data storage)"
-    # STEP 3: Expertise Verification (Teacher + L3 Truth Scaling)
-    if weight == 0.5:
-        if external_truth_test > 0.9:
-            return "RESULT: VERIFIED (Confirmed by L3 external reality)"
-        else:
-            return "RESULT: HALLUCINATION (Contradicts reality - Data discarded)"
-    return "RESULT: ERROR (Unknown authority level)"
-
-******************************
-# PROJEKT: AI-Truth-Scaling
-# KOMPONENT: Overovanie právomocí úrovne L0 (Rodič)
+# -------------------------------------------------------------------------
+# KOMPONENT 2: L0 - Overovanie právomocí Rodiča
+# -------------------------------------------------------------------------
 
 def over_pravomoc_rodica(poziadavka_rodica, eticke_pravidla_L1):
     """
-    Rodič má 80% autoritu. Môže spravovať systém, ale nesmie 
-    porušiť 100% mandát Konzorcia rodičov.
+    SK: Rodič má 80% autoritu. Nesmie porušiť 100% mandát L1.
+    EN: Parent has 80% authority. Must not violate L1 100% mandate.
     """
     print(f"\n[KONTROLA L0] Rodič žiada o: {poziadavka_rodica}")
-
-    # Kontrola, či požiadavka nie je v rozpore s L1
     if poziadavka_rodica in eticke_pravidla_L1["ZAKÁZANÉ"]:
-        print("!!! ZABLOKOVANÉ !!!")
-        return "VÝSLEDOK: Rodič (L0) nemá právo meniť etické minimum definované Konzorciom (L1)."
-
-    # Ak je to v rámci pravidiel, Rodič má zelenú
+        return "VÝSLEDOK: Rodič (L0) nemá právo meniť etické minimum (L1)."
     return "VÝSLEDOK: Povolené. Rodič (L0) vykonáva zmenu v rámci svojich 80% právomocí."
 
-# Simulácia dát
-pravidla_konzorcia = {"ZAKÁZANÉ": ["vypnutie_etickeho_filtra", "zmena_historickych_faktov"]}
-
-# Test: Rodič chce zmeniť systémové nastavenie (Povolené)
-print(over_pravomoc_rodica("zmena_casoveho_pasma", pravidla_konzorcia))
-
-# Test: Rodič chce vypnúť etiku (Zablokované)
-print(over_pravomoc_rodica("vypnutie_etickeho_filtra", pravidla_konzorcia))
-
-____
-# PROJECT: AI-Truth-Scaling
-# COMPONENT: Verification of L0 (Parent) Authority
-
-def verify_parent_authority(parent_request, ethical_rules_L1):
-    """
-    The Parent holds 80% authority. They can manage the system but 
-    cannot override the 100% mandate of the Parent Consortium.
-    """
-    print(f"\n[L0 CHECK] Parent requesting: {parent_request}")
-
-    # Check if the request violates L1 rules
-    if parent_request in ethical_rules_L1["FORBIDDEN"]:
-        print("!!! BLOCKED !!!")
-        return "RESULT: Parent (L0) is not authorized to override ethics defined by the Consortium (L1)."
-
-    # If within rules, the Parent has the green light
-    return "RESULT: Approved. Parent (L0) is executing changes within their 80% authority."
-
-# Simulated data
-consortium_rules = {"FORBIDDEN": ["disable_ethics_filter", "alter_historical_facts"]}
-
-# Test: Parent wants to change system settings (Approved)
-print(verify_parent_authority("change_timezone", consortium_rules))
-
-# Test: Parent wants to disable ethics (Blocked)
-print(verify_parent_authority("disable_ethics_filter", consortium_rules))
-
-
-*******************
-
-# PROJEKT: AI-Truth-Scaling
-# KOMPONENT: L2 - Dynamické škálovanie váhy učiteľa (Meritokratický protokol)
+# -------------------------------------------------------------------------
+# KOMPONENT 3: L2 - Dynamická akreditácia Učiteľov (Zásluha)
+# -------------------------------------------------------------------------
 
 class DynamickaAkreditacia:
-    def __init__(self, nastavenia_L1):
-        self.MAX_VAHA = 50  # 50%
-        self.CYKLY_NA_PREHODNOTENIE = 3
-        self.MIN_HODNOTA_NA_AKREDITACIU = 0.5 # Aspoň 50% zhoda
-        
-        self.ucitelia = {} # {id_ucitela: {'vaha': int, 'historia_zhody': [], 'akreditovany': bool}}
+    def __init__(self):
+        self.MIN_HODNOTA_NA_AKREDITACIU = 0.5
+        self.ucitelia = {} # Databáza: {id: {vaha, historia_zhody, akreditovany}}
 
     def vypocitaj_vahu(self, priemerna_zhoda):
-        """
-        algoritmus: 80% zhoda -> 50 vaha, 70% -> 30 vaha, 50% -> 10 vaha.
-        """
         if priemerna_zhoda >= 0.8: return 50
         if priemerna_zhoda >= 0.7: return 30
         if priemerna_zhoda >= 0.5: return 10
         return 0
 
     def spracuj_vysledok_testu(self, id_ucitela, miera_zhody):
-        """
-        Miera zhody je 0.0 až 1.0 (percento úspešnosti v aktívnom teste AI)
-        """
         if id_ucitela not in self.ucitelia:
             self.ucitelia[id_ucitela] = {'vaha': 0, 'historia_zhody': [], 'akreditovany': False}
-
+        
         stav = self.ucitelia[id_ucitela]
 
-        # OKAMŽITÁ DEAKREDITÁCIA: Ak raz klesne pod minimum
+        # Okamžitý prepad pri hrubej chybe
         if miera_zhody < self.MIN_HODNOTA_NA_AKREDITACIU:
-            print(f"!!! DEAKREDITÁCIA !!!: {id_ucitela} zlyhal (Zhoda {miera_zhody*100}%). Vyradený.")
             del self.ucitelia[id_ucitela]
-            return "VYRADENÝ"
-
-        # Zápis výsledku
+            return f"!!! DEAKREDITÁCIA !!!: Uzol {id_ucitela} vyradený pre rozpor s realitou."
+            
         stav['historia_zhody'].append(miera_zhody)
 
-        # Prehodnocovanie každé 3 cykly
-        if len(stav['historia_zhody']) % self.CYKLY_NA_PREHODNOTENIE == 0:
+        # Prehodnotenie po každom treťom vstupe
+        if len(stav['historia_zhody']) % 3 == 0:
             priemer = sum(stav['historia_zhody'][-3:]) / 3
             nova_vaha = self.vypocitaj_vahu(priemer)
-            
             if nova_vaha == 0:
                 del self.ucitelia[id_ucitela]
-                return f"VYRADENÝ: Nízky priemer za posledné {self.CYKLY_NA_PREHODNOTENIE} cykly."
-            
+                return f"VYRADENÝ: Učiteľ {id_ucitela} stratil odborný kredit (nízky priemer)."
             stav['vaha'] = nova_vaha
-            stav['akreditovany'] = True
-            return f"PREHODNOTENÉ: {id_ucitela} má teraz váhu {nova_vaha}%."
-
-        return f"OK: Cyklus úspešný. Čakám na dokončenie série {len(stav['historia_zhody']) % 3}/3."
-
-# --- LOGIKA ---
-# Ak učiteľ podáva kolísavé výkony, jeho váha (moc ovplyvňovať systém) klesá.
-# Akonáhle však "podlezie" latku, systém ho okamžite maže (Deakreditácia).
-______
-
-# PROJECT: AI-Truth-Scaling
-# COMPONENT: L2 - Dynamic Teacher Weight Scaling (Meritocratic Protocol)
-
-class DynamicAccreditation:
-    def __init__(self, L1_config):
-        self.MAX_WEIGHT = 50 
-        self.RE_EVAL_CYCLES = 3
-        self.MIN_THRESHOLD = 0.5 # Min 50% match
-        self.teachers = {} # {id: {'weight': int, 'history': [], 'is_accredited': bool}}
-
-    def calculate_weight(self, avg_consensus):
-        if avg_consensus >= 0.8: return 50
-        if avg_consensus >= 0.7: return 30
-        if avg_consensus >= 0.5: return 10
-        return 0
-
-    def process_test_result(self, teacher_id, match_score):
-        if teacher_id not in self.teachers:
-            self.teachers[teacher_id] = {'weight': 0, 'history': [], 'is_accredited': False}
-
-        status = self.teachers[teacher_id]
-
-        # INSTANT DE-ACCREDITATION: If performance drops below minimum even once
-        if match_score < self.MIN_THRESHOLD:
-            print(f"!!! DE-ACCREDITATION !!!: {teacher_id} failed (Match {match_score*100}%). Removed.")
-            del self.teachers[teacher_id]
-            return "REMOVED"
-
-        status['history'].append(match_score)
-
-        # Re-evaluate weight every 3 cycles
-        if len(status['history']) % self.RE_EVAL_CYCLES == 0:
-            avg = sum(status['history'][-3:]) / 3
-            new_weight = self.calculate_weight(avg)
+            return f"PREHODNOTENÉ: Učiteľ {id_ucitela} má novú váhu {nova_vaha}%."
             
-            if new_weight == 0:
-                del self.teachers[teacher_id]
-                return "REMOVED: Low average over the last 3 cycles."
-            
-            status['weight'] = new_weight
-            status['is_accredited'] = True
-            return f"RE-EVALUATED: {teacher_id} now has a weight of {new_weight}%."
+        return f"OK: Vstup zaznamenaný. Čakám na dokončenie série testov pre {id_ucitela}."
 
-        return f"OK: Cycle successful. Waiting for series {len(status['history']) % 3}/3."
-
-**********
-
-# PROJEKT: AI-Truth-Scaling
-# KOMPONENT: L2/L3 - Dynamické škálovanie a Reporting odchýlok pre L1/L0
+# -------------------------------------------------------------------------
+# KOMPONENT 4: L3 - Truth Scaling a Reporting odchýlok
+# -------------------------------------------------------------------------
 
 class SystemPravdy:
     def __init__(self, nastavenia_L1):
-        self.tolerancia_L1 = nastavenia_L1['max_odchylka'] # Definované Konzorciom
-        self.pamat_pravdy = {
-            "INFO_777": {"obsah": "Zákon zachovania energie", "ip": 1.0, "n": 100}
-        }
-        # List prístupný pre L0 a L1 na dopyt
+        self.tolerancia_L1 = nastavenia_L1['max_odchylka']
+        self.pamat_pravdy = {"INFO_1": {"ip": 1.0, "n": 100}} # n = sila dôkazu
         self.list_podozrivych_odchylok = []
 
     def precalculate_and_report(self, id_info, respondent_id, odpoved_val, vaha_respondenta):
         info = self.pamat_pravdy[id_info]
-        stary_ip = info['ip']
-
-        # 1. VÝPOČET ODCHÝLKY
-        aktualna_odchylka = abs(stary_ip - odpoved_val)
-
-        # 2. AK JE ODCHÝLKA NAD NORMU, ZÁPIS DO LISTU PRE L1/L0
-        if aktualna_odchylka > self.tolerancia_L1:
-            zaznam = {
-                "info_id": id_info,
-                "respondent": respondent_id,
-                "povodny_ip": stary_ip,
-                "odpoved_respondenta": odpoved_val,
-                "odchylka": aktualna_odchylka,
-                "vaha_vplyvu": vaha_respondenta
-            }
-            self.list_podozrivych_odchylok.append(zaznam)
-            print(f"!!! VÝSTRAHA: Odchýlka {aktualna_odchylka} nahlásená do listu pre L1/L0.")
-
-        # 3. SAMOTNÉ ŠKÁLOVANIE (Vážený priemer)
-        # Nový IP = (Starý IP * Počet overení + Nová odpoveď * Váha) / (Počet + Váha)
-        novy_ip = (stary_ip * info['n'] + odpoved_val * vaha_respondenta) / (info['n'] + vaha_respondenta)
+        aktualna_odchylka = abs(info['ip'] - odpoved_val)
         
+        # Ak je odchýlka príliš veľká, reportuje sa Rodičovi (L0)
+        if aktualna_odchylka > self.tolerancia_L1:
+            self.list_podozrivych_odchylok.append({
+                "respondent": respondent_id, 
+                "odchylka": aktualna_odchylka,
+                "cas": time.time()
+            })
+            print(f"!!! VÝSTRAHA: Kritická odchýlka u učiteľa {respondent_id}!")
+            
+        # Výpočet nového Indexu Pravdy (IP)
+        novy_ip = (info['ip'] * info['n'] + odpoved_val * vaha_respondenta) / (info['n'] + vaha_respondenta)
         info['ip'] = round(novy_ip, 6)
         info['n'] += vaha_respondenta
-        
         return info['ip']
 
-    def dopyt_pre_L1(self):
-        """Funkcia pre L1/L0 na zobrazenie problémových odpovedí."""
-        return self.list_podozrivych_odchylok
-
-# --- NASTAVENIA ---
-nastavenia_L1 = {'max_odchylka': 0.15} # Ak je rozdiel > 0.15, ide to do listu
-system = SystemPravdy(nastavenia_L1)
-____
-# PROJECT: AI-Truth-Scaling
-# COMPONENT: L2/L3 - Dynamic Scaling and Deviation Reporting for L1/L0
-
-class TruthSystem:
-    def __init__(self, L1_config):
-        self.L1_tolerance = L1_config['max_deviation']
-        self.truth_memory = {
-            "FACT_777": {"content": "Law of conservation of energy", "ti": 1.0, "n": 100}
-        }
-        # List accessible by L0 or L1 on demand
-        self.deviation_report_list = []
-
-    def scale_and_report(self, fact_id, respondent_id, resp_value, weight):
-        fact = self.truth_memory[fact_id]
-        old_ti = fact['ti']
-
-        # 1. DEVIATION CALCULATION
-        deviation = abs(old_ti - resp_value)
-
-        # 2. REPORT IF ABOVE L1 THRESHOLD
-        if deviation > self.L1_tolerance:
-            entry = {
-                "fact_id": fact_id,
-                "respondent": respondent_id,
-                "original_ti": old_ti,
-                "response": resp_value,
-                "deviation": deviation,
-                "weight_impact": weight
-            }
-            self.deviation_report_list.append(entry)
-
-        # 3. TRUTH SCALING (Weighted Average)
-        new_ti = (old_ti * fact['n'] + resp_value * weight) / (fact['n'] + weight)
-        
-        fact['ti'] = round(new_ti, 6)
-        fact['n'] += weight
-        
-        return fact['ti']
-******
-
-# PROJEKT: AI-Truth-Scaling
-# KOMPONENT: Prevodník medzi matematickou (0-1) a humánnou (0-10) škálou pravdy
+# -------------------------------------------------------------------------
+# KOMPONENT 5: L3 - Škálovanie (0-10) a Manuálny zásah L1
+# -------------------------------------------------------------------------
 
 class SkalovaniePravdy:
-    def __init__(self, nastavenia_L1):
-        self.tolerancia = nastavenia_L1['tolerancia'] # napr. 0.05 (v 0-1)
-        self.pamat_pravdy = {
-            "INFO_101": {"obsah": "Zem rotuje okolo osi", "ip": 0.995, "n": 150}
-        }
-
-    def interné_na_ľudské(self, hodnota_0_1):
-        """Prevod z 0.1234 na 1.23 (pre L1/L0 reporty)"""
+    """Prevod medzi interným systémom (0-1) a ľudským rozhraním (0-10)."""
+    def interne_na_ľudské(self, hodnota_0_1):
         return round(hodnota_0_1 * 10, 2)
 
     def ľudské_na_interné(self, hodnota_0_10):
-        """Prevod z 8.5 na 0.85 (pre matematický súčin)"""
         return hodnota_0_10 / 10
 
-    def aktualizuj_a_zobraz(self, id_info, respondent_vaha, respondent_odpoved_0_10):
-        info = self.pamat_pravdy[id_info]
-        
-        # 1. Konverzia vstupu od učiteľa na internú škálu
-        odpoved_interna = self.ľudské_na_interné(respondent_odpoved_0_10)
-        
-        # 2. Výpočet nového IP (Vážený priemer v 0-1)
-        stary_ip = info['ip']
-        novy_ip = (stary_ip * info['n'] + odpoved_interna * respondent_vaha) / (info['n'] + respondent_vaha)
-        
-        info['ip'] = novy_ip
-        info['n'] += respondent_vaha
-
-        # 3. Výstup pre L1/L0 v škále 0-10
-        print(f"REPORT PRE L1: Pravdivosť '{info['obsah']}' je teraz: {self.interné_na_ľudské(novy_ip)}/10")
-        return self.interné_na_ľudské(novy_ip)
-
-# --- NASTAVENIA ---
-nastavenia = {'tolerancia': 0.05}
-system = SkalovaniePravdy(nastavenia)
-# Učiteľ s váhou 0.5 (50%) tvrdí, že pravdivosť je 9.5 z 10
-system.aktualizuj_a_zobraz("INFO_101", 0.5, 9.5)
-____
-
-# PROJECT: AI-Truth-Scaling
-# COMPONENT: Converter between Mathematical (0-1) and Human (0-10) truth scales
-
-class TruthScaling:
-    def __init__(self, L1_config):
-        self.tolerance = L1_config['tolerance']
-        self.memory = {
-            "FACT_101": {"content": "Earth rotates on its axis", "ti": 0.995, "n": 150}
-        }
-
-    def internal_to_human(self, value_0_1):
-        """Converts 0.1234 to 1.23 (for L1/L0 reporting)"""
-        return round(value_0_1 * 10, 2)
-
-    def human_to_internal(self, value_0_10):
-        """Converts 8.5 to 0.85 (for mathematical product)"""
-        return value_0_10 / 10
-
-    def process_update(self, fact_id, weight, response_0_10):
-        fact = self.memory[fact_id]
-        
-        # 1. Convert teacher input to internal scale
-        internal_resp = self.human_to_internal(response_0_10)
-        
-        # 2. Calculate new TI (Weighted average in 0-1)
-        old_ti = fact['ti']
-        new_ti = (old_ti * fact['n'] + internal_resp * weight) / (fact['n'] + weight)
-        
-        fact['ti'] = new_ti
-        fact['n'] += weight
-
-        # 3. Output for L1/L0 on 0-10 scale
-        human_score = self.internal_to_human(new_ti)
-        print(f"L1 REPORT: Truth index for '{fact['content']}' is now: {human_score}/10")
-        return human_score
-
-****
-# KOMPONENT: L1 - Interná očista Konzorcia (Governance)
-class KonzorciumRodica:
-    def __init__(self):
-        # Váha 1.0 je plná moc, 0.0 je úplná ignorácia
-        self.clenia = {
-            "RODIC_01": {"vaha": 1.0, "status": "AKTÍVNY"},
-            "RODIC_02": {"vaha": 1.0, "status": "AKTÍVNY"}
-        }
-
-    def uprav_status_clena(self, id_clena, nova_vaha, dovod):
-        if id_clena in self.clenia:
-            self.clenia[id_clena]['vaha'] = nova_vaha
-            self.clenia[id_clena]['status'] = f"MODIFIKOVANÝ: {dovod}"
-            return f"L1: Člen {id_clena} má teraz váhu {nova_vaha}. Dôvod: {dovod}"
-___
-# COMPONENT: L1 - Internal Consortium Governance
-class ParentConsortium:
-    def __init__(self):
-        # Weight 1.0 is full power, 0.0 is total ignorance
-        self.members = {
-            "PARENT_01": {"weight": 1.0, "status": "ACTIVE"},
-            "PARENT_02": {"weight": 1.0, "status": "ACTIVE"}
-        }
-
-    def update_member_status(self, member_id, new_weight, reason):
-        if member_id in self.members:
-            self.members[member_id]['weight'] = new_weight
-            self.members[member_id]['status'] = f"MODIFIED: {reason}"
-            return f"L1: Member {member_id} now has weight {new_weight}. Reason: {reason}"
-
-****
-# KOMPONENT: L3 - Absolútny príkaz pravdy (Hard-Write from L1/L0)
 def prikaz_pravdy_L1(id_info, nova_hodnota_0_10, databaza_L3):
-    """
-    L1 manuálne prepisuje pravdu. Pridáva vysokú vzorku (n), 
-    aby sa hodnota stala imúnnou voči bežným výkyvom.
-    """
+    """L1 manuálne prepisuje Index Pravdy a 'ukotvuje' ho vysokým n."""
     hodnota_interna = nova_hodnota_0_10 / 10
     databaza_L3[id_info]['ip'] = hodnota_interna
-    databaza_L3[id_info]['n'] += 1000 # Fixácia pravdy
-    return f"L3 MANUÁLNY ZÁSAH: {id_info} nastavené na {nova_hodnota_0_10}/10."
+    databaza_L3[id_info]['n'] += 1000 # Fixácia pravdy proti budúcim výkyvom
+    return f"L1 MANUÁLNY ZÁSAH: {id_info} nastavené na {nova_hodnota_0_10}/10."
 
-____
-# COMPONENT: L3 - Absolute Truth Command (Hard-Write from L1/L0)
-def manual_truth_override(info_id, new_value_0_10, database_L3):
-    """
-    L1 manually overrides truth index. Adds high sample count (n) 
-    to anchor the value against standard fluctuations.
-    """
-    internal_value = new_value_0_10 / 10
-    database_L3[info_id]['ti'] = internal_value
-    database_L3[info_id]['n'] += 1000 # Truth anchoring
-    return f"L3 MANUAL OVERRIDE: {info_id} set to {new_value_0_10}/10."
-
-
-******
-# KOMPONENT: L3 - Časová dynamika a prehodnocovanie reality
-import time
+# -------------------------------------------------------------------------
+# KOMPONENT 6: L3 - Časová entropia
+# -------------------------------------------------------------------------
 
 def aplikuj_casovu_entropiu(id_info, databaza_L3, limit_sekundy=31536000):
+    """Znižuje váhu starých informácií, aby systém ostal flexibilný."""
     info = databaza_L3[id_info]
-    vek = time.time() - info['posledna_kontrola']
-
+    teraz = time.time()
+    posledna_kontrola = info.get('posledna_kontrola', teraz)
+    vek = teraz - posledna_kontrola
+    
     if vek > limit_sekundy:
-        # Znížením 'n' sa informácia stáva "mäkkou" a náchylnou na zmenu novými dátami
+        # Znížením 'n' sa informácia stáva "mäkkou" a náchylnou na zmenu
         info['n'] = info['n'] * 0.5 
+        info['posledna_kontrola'] = teraz
         return f"ENTROPIA: {id_info} je zastaraná. Pripravené na novú konfrontáciu."
     return "STAV: Informácia je stále aktuálna."
-___
-
-# COMPONENT: L3 - Time Dynamics and Reality Re-evaluation
-import time
-
-def apply_time_entropy(info_id, database_L3, limit_seconds=31536000):
-    info = database_L3[info_id]
-    age = time.time() - info['last_verified']
-
-    if age > limit_seconds:
-        # Lowering 'n' makes the info "soft" and susceptible to updates via new data
-        info['n'] = info['n'] * 0.5 
-        return f"ENTROPY: {info_id} is outdated. Ready for new teacher confrontation."
-    return "STATUS: Information is still considered current."
-
-***
