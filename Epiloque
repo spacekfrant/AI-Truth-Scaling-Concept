@@ -1,0 +1,31 @@
+Úvaha o dynamickej pravde a eliminácii pasivity
+
+Môj systém (AI-Truth-Scaling) nie je len statická databáza, je to živý organizmus, ktorý pravdu aktívne chráni. Tento update prináša tri kľúčové vylepšenia:
+
+Eliminácia mŕtvej váhy: V systéme neexistuje „neviem“ alebo ticho bez následkov. Ak bol učiteľ vybraný ako expert, jeho mlčanie sa trestá okamžitým vynulovaním váhy a deakreditáciou. Tým zabezpečujeme, že systém obsahuje len aktívnu inteligenciu.
+
+Tematická váha (Risk Management): Netestujeme banality. Systém priraďuje témam váhu od 0.1 do 1.0. Pri kritických témach (medicína, bezpečnosť) vyžaduje nulovú odchýlku. Pri nepodstatných témach šetrí zdroje a dovoľuje pluralitu.
+
+Informačná asymetria: Učiteľ je v „slepej uličke“. Nikdy nevie, s kým odpovedá, ani či ho systém práve netestuje na vopred známej pravde. Jedinou logickou stratégiou na prežitie v systéme je preto hovoriť pravdu.
+
+Zhrnutie: Systém je imúnny voči sabotáži. Vždy sa nájde dosť tých, ktorí odpovedia, a tí, čo mlčia, sú automaticky nahradení.
+
+
+# Technical enforcement of the logic / Technické vynútenie logiky
+if response is None or response == "UNKNOWN":
+    teacher.weight = 0
+    teacher.status = "DEACCREDITED_INACTIVITY"
+    # The system moves on instantly / Systém okamžite pokračuje
+
+🇬🇧 English Version (ENG)
+Reflections on Dynamic Truth and Passive Node Elimination
+
+The AI-Truth-Scaling system is not a static database; it is a living organism that actively defends the truth. This update introduces three critical enhancements:
+
+Dead Weight Elimination: There is no room for "I don't know" or silence without consequences. If a Teacher is selected as an expert, their silence results in an immediate weight reset and de-accreditation. This ensures the system only retains active intelligence.
+
+Topical Weighting (Risk Management): We do not waste resources on trivialities. The system assigns a weight (0.1 to 1.0) to topics. Critical domains (medicine, security) require zero deviation. Non-essential topics save resources and allow for plurality.
+
+Information Asymmetry: The Teacher operates in a "blind spot." They never know who else is answering or if the system is currently testing them against a pre-validated truth. Therefore, the only logical strategy for survival within the system is to tell the truth.
+
+Summary: The system is immune to sabotage. There are always enough active responders, and those who remain silent are automatically replaced by the next expert in line.
