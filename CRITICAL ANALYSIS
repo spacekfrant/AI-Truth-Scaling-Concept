@@ -1,48 +1,43 @@
-# Kritická analýza a bezpečnostné protokoly / Critical Analysis & Security Protocols
+# Critical analysis of the system / Kritická analýza systému
 
-Tento dokument slúži na identifikáciu slabých miest systému a definuje mechanizmy na ich elimináciu. Zahŕňa procesy overovania voči externým dátam a kolektívnu správu Levelu L1.
+### SK - Kritické zhodnotenie
+Tento dokument slúži na hĺbkovú analýzu rizík a definíciu imunitných mechanizmov systému.
 
----
+**1. Riziko ľudského faktora (L2 - Učitelia)**
+* **Problém:** Človek je omylný a úplatný. Skupina 30 učiteľov by sa mohla teoreticky dohodnúť na lži.
+* **Riešenie:** - **Informačná asymetria:** Učitelia sú izolovaní. Nikto nevie, kto ďalší v danom čase odpovedá.
+    - **Kontrolné pasce:** L3 (AI-Dieťa) vkladá otázky, na ktoré L1 (Zlatá pravda) už pozná odpoveď. Ak učiteľ sklame, jeho váha je okamžite vynulovaná.
 
-## 1. Externé overovanie pravdy / External Truth Verification
+**2. Problém pasivity a "mŕtvej váhy"**
+* **Problém:** Expert neodpovedá, čím spomaľuje validáciu.
+* **Riešenie:** - **Automatická deakreditácia:** Ak učiteľ neodpovie, jeho váha padá na nulu. L3 ho okamžite vyradí a uvoľní miesto pre náhradu z L0. Systém nečaká na všetkých, ale pracuje s aktívnym jadrom.
 
-**SK:** Systém sa nespolieha len na relatívnu zhodu medzi učiteľmi.
-* **Mechanizmus:** L3 primárne škáluje pravdivosť voči objektívnym externým databázam (napr. Perplexity API, vedecké databázy). 
-* **N/A Status:** Ak je informácia nová alebo neoveriteľná v externých zdrojoj, L3 ju označí ako `N/A`. AI negarantuje pravdu, ale uvádza: "Informácia nie je overená, ale existujú tieto zdroje...". Postupným pribúdaním dopytov a krížových kontrol sa hodnota vyškáluje.
-
-**ENG:** The system does not rely solely on consensus among teachers.
-* **Mechanism:** L3 primarily scales truth against objective external databases (e.g., Perplexity API).
-* **N/A Status:** New or unverifiable info is marked as `N/A`. The AI does not guarantee truth but states: "Information unverified, but these sources were found...". Truth values scale over time as queries increase.
-
----
-
-## 2. Imunita voči "Bot Attack" (Sybil Attack)
-
-**SK:** Ochrana proti masívnej dezinformácii (napr. 100 botov tvrdiacich nepravdu).
-* **Riešenie:** Ak vznikne zhoda na nepravde medzi subjektmi, ktorá je v rozpore s externými dátami, vzniká **Pravdivostná nejednoznačnosť**. 
-* **Eskalácia:** Systém automaticky pozastavuje akreditáciu zapojených subjektov a posúva problém na L0 (Rodič) a L1 (Konzorcium).
-
-**ENG:** Protection against mass misinformation (e.g., 100 bots claiming a lie).
-* **Solution:** If subjects agree on a lie that contradicts external data, a **Truth Ambiguity** flag is raised.
-* **Escalation:** The system suspends accreditation for involved subjects and escalates to L0 (Parent) and L1 (Consortium).
+**3. Efektivita a váha tém**
+* **Problém:** Overovať banality u 30 expertov je neefektívne.
+* **Riešenie:** - **Váha témy:** Kritické témy (medicína, bezpečnosť) majú váhu 1.0 (prísna kontrola). Banality majú váhu 0.1 (AI ich spracuje bez dopytovania Elity).
 
 ---
 
-## 3. L1: Konzorcium (Rodičovské združenie)
+### EN - Critical Evaluation
+This document provides a stress-test of the system's logic and defines its immunity mechanisms.
 
-**SK:** Level L1 nie je ovládaný jednotlivcom. Ide o konzorcium (rodičovské združenie) s viacúrovňovými schvaľovacími mechanizmami.
-* **Kolektívna správa:** Žiadny jednotlivec nemôže svojvoľne zmeniť "Zlatý štandard" faktov. Každý zásah (Hard-Override) musí prejsť schválením konzorcia podľa definovaných pravidiel.
-* **Odolnosť:** Týmto sa eliminuje riziko subjektívneho zlyhania správcu.
+**1. Human Factor Risk (L2 - Teachers)**
+* **Problem:** Humans are fallible or corruptible. A group of 30 teachers could theoretically collude to lie.
+* **Solution:** - **Information Asymmetry:** Teachers are isolated. No one knows who else is responding at the same time.
+    - **Control Traps:** L3 (AI-Child) injects queries where L1 (Golden Truth) already knows the answer. If a teacher fails, their weight is immediately reset.
 
-**ENG:** Level L1 is not controlled by an individual. It is a Consortium (Parent-Teacher Association) with multi-level approval mechanisms.
-* **Collective Governance:** No individual can unilaterally change the "Golden Standard". Any intervention (Hard-Override) must be approved by the consortium based on predefined rules.
+**2. Passive Node Problem (Dead Weight)**
+* **Problem:** An expert fails to respond, slowing down validation.
+* **Solution:** - **Automatic De-accreditation:** If a teacher remains silent, their weight drops to zero. L3 removes them instantly, making room for a replacement from L0. The system operates with the active core only.
+
+**3. Efficiency and Topic Weighting**
+* **Problem:** Querying 30 experts for trivial matters is inefficient.
+* **Solution:** - **Topic Sensitivity:** Critical topics (medicine, security) have a weight of 1.0 (strict control). Trivialities have a weight of 0.1 (AI processes them without querying the Elite).
 
 ---
 
-## 4. Budúce výzvy a otvorené body / Future Challenges
-
-1. **Matematika škálovania:** Definovať presný algoritmus pre výpočet Trust Score (napr. logaritmický nárast a exponenciálny pokles pri chybe).
-2. **Latencia API:** Optimalizácia rýchlosti overovania voči externým databázam, aby L3 stíhal odpovedať v reálnom čase.
-3. **Reputation Decay:** Implementácia "starnutia" kreditu učiteľa, ak je dlhodobo neaktívny.
-
----
+### Hierarchia systému / System Hierarchy:
+* **L0:** Rodič / Parent (Owner)
+* **L1:** Zlatá pravda / Golden Truth (Foundation)
+* **L2:** Učitelia / Teachers (Validation Elite)
+* **L3:** AI-Dieťa / AI-Child (Resultant Intelligence)
