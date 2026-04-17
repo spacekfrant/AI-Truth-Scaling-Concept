@@ -24,7 +24,44 @@ Instead of binary output, every piece of information is assigned a weight:
 - **The Parent (Admin):** Sets the core foundation. Their input is the "Gold Standard" (Score 10).
 - **The Society (Users):** Form the social context and current consensus.
 - **Social Oversight:** Independent body ensuring the Parent doesn't manipulate the truth for bias.
+## 1. Terminology (Who is Who)
 
+| Subject | Level | Role | Main Function |
+| :--- | :---: | :--- | :--- |
+| **Parent** | **L0** | Root Controller | Arbitration, frequency settings, and manual learning processes. |
+| **Auditor** | **L1** | Policy Department | Hard-Override, definition of absolute truth and ethics. |
+| **Expertise** | **L2** | Domain Management | Managing subject expertise and selecting relevant test questions. |
+| **Student** | **L3** | Active Learning Agent | Communication, truth-scaling, testing, and accreditation. |
+| **Subject** | **S** | User / External Entity | Information source (unverified, in-accreditation, or teacher). |
+
+---
+
+## 2. Level Properties
+
+### **L0: The Parent (Root)**
+Highest decision-making level. Controls global settings (`TEST_FREQUENCY`, `ACCREDITATION_THRESHOLD`). Performs manual intervention when L3 reports persistent logical deadlocks.
+
+### **L1: Policy Department (The Auditor)**
+Holds the "Golden Standard" of facts. The `FORCE_CORRECTION` property allows it to immediately overwrite any value in the system. It serves as a safeguard against systemic manipulation.
+
+### **L2: Competencies (Domain Expert)**
+Manages the `SUBJECT_EXPERTISE_MAP`. Ensures that testing procedures are relevant to the specific field of expertise of the subject being tested.
+
+### **L3: The Student Agent**
+The main executive level. It operates through three core procedures:
+* **Input Procedure:** Categorization and initial scaling of incoming data.
+* **Output Procedure:** Response modulation (Highly probable / Contradictory / Unverified).
+* **Testing Procedure:** Active verification of subjects via "Do you think that..." queries and managing 10-question accreditation cycles.
+
+---
+
+## 3. Accreditation & Immunity Process
+
+The system constantly evaluates the performance of all subjects:
+1. **New Subject:** Treated as unverified by default.
+2. **Future Teacher:** Achieved when a subject reaches 70%+ accuracy in a 10-question cycle.
+3. **Accredited Teacher:** Achieved after maintaining 100% accuracy over an L0-defined number of cycles.
+4. **Degradation:** If an accredited teacher repeatedly provides answers that conflict with established fact-scaling, their credit is revoked, and the system stops actively engaging with them.
 ---
 
 ## 🇸🇰 Slovenská verzia
@@ -48,3 +85,51 @@ Namiesto binárneho výstupu je každej informácii priradená váha:
 - **Rodič (Správca):** Nastavuje základné základy. Jeho vstup je „zlatý štandard“ (Skóre 10).
 - **Spoločnosť (Používatelia):** Tvoria sociálny kontext a aktuálny konsenzus.
 - **Sociálny dozor:** Nezávislý orgán zabezpečujúci, aby Rodič nemanipuloval pravdu vo svoj prospech.
+
+- -
+
+## 1. Terminológia / Terminology
+
+| Subjekt / Subject | Level | Rola (SK) | Role (ENG) | Hlavná funkcia / Main Function |
+| :--- | :---: | :--- | :--- | :--- |
+| **Parent** | **L0** | Rodič / Administrátor | Root Controller | Arbitráž, nastavenie frekvencií a manuálny učiaci proces. |
+| **Auditor** | **L1** | Policy Department | Logic & Ethics Board | Hard-Override, definícia absolútnej pravdy a etiky. |
+| **Expertise** | **L2** | Kompetencie | Domain Management | Správa odbornosti subjektov a výber testovacích otázok. |
+| **Student** | **L3** | Žiak / Aktívny agent | Active Learning Agent | Komunikácia, škálovanie pravdy, testovanie a akreditácia. |
+| **Subject** | **S** | Používateľ / Subjekt | User / External Entity | Zdroj informácií (neoverený, v procese akreditácie, alebo učiteľ). |
+
+---
+
+## 2. Vlastnosti Levelov / Level Properties
+
+### **L0: Rodič (The Parent)**
+* **SK:** Najvyššia rozhodovacia úroveň. Riadi globálne nastavenia (`FREKVENCIA_TESTOV`, `PRAH_AKREDITACIE`). Vykonáva manuálny zásah pri zistení systémových rozporov, ktoré L3 nevie vyriešiť.
+* **ENG:** Root decision level. Manages global settings (`TEST_FREQUENCY`, `ACCREDITATION_THRESHOLD`). Performs manual intervention when system conflicts arise that L3 cannot resolve.
+
+### **L1: Policy Department (The Auditor)**
+* **SK:** Drží "Zlatý štandard" faktov. Vlastnosť `FORCE_CORRECTION` umožňuje okamžite prepísať akúkoľvek hodnotu v systéme. Je to poistka proti systémovej manipulácii.
+* **ENG:** Holds the "Golden Standard" of facts. The `FORCE_CORRECTION` property allows an immediate overwrite of any system value. Acts as a safeguard against system manipulation.
+
+### **L2: Kompetencie (Domain Expert)**
+* **SK:** Spravuje mapu odbornosti (`SUBJECT_EXPERTISE_MAP`). Zabezpečuje, aby testovacie otázky boli relevantné k zameraniu subjektu.
+* **ENG:** Manages the expertise map (`SUBJECT_EXPERTISE_MAP`). Ensures test questions are relevant to the subject's focus.
+
+### **L3: Žiak (The Student Agent)**
+* **SK:** Hlavný výkonný level. Vykonáva tri procedúry:
+    * **Vstupná:** Kategorizácia a škálovanie prichádzajúcich informácií.
+    * **Výstupná:** Modulácia odpovede (vysoko pravdepodobné / rozporuplné / bez záruky).
+    * **Testovacia:** Aktívne preverovanie subjektov cez otázky "Myslíš si, že..." a správa 10-otázkových akreditačných cyklov.
+* **ENG:** Main executive level. Executes three procedures:
+    * **Input:** Categorization and scaling of incoming information.
+    * **Output:** Response modulation (highly probable / contradictory / no guarantee).
+    * **Testing:** Active subject verification via "Do you think that..." questions and management of 10-question accreditation cycles.
+
+---
+
+## 3. Akreditačný a imunitný proces / Accreditation & Immunity
+
+Systém neustále vyhodnocuje úspešnosť subjektov. 
+1. **Nový subjekt:** Je považovaný za neoverený.
+2. **Budúci učiteľ:** Ak subjekt dosiahne 70%+ úspešnosť v 10-otázkovom cykle.
+3. **Akreditovaný učiteľ:** Po dosiahnutí 100% úspešnosti v L0 definovanom počte cyklov.
+4. **Degradácia:** Ak akreditovaný učiteľ opakovane odpovedá v rozpore s faktami (škálovaním), stráca kredit a systém ho prestáva oslovovať.
