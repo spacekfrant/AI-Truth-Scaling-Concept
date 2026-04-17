@@ -1,159 +1,79 @@
-# AI-Truth-Scaling: The Parent Hierarchy Concept
+-----------------------------------------------------------------
 
-This model addresses the challenge of truth discovery and fact-checking in AI through a graduated "Parental Authority" system. The goal is to eliminate hallucinations by defining clear boundaries of trust.
+# Definícia autority
+HLADINY_AUTORITY = {
+    "L1_KONZORCIUM_RODIČOV": 1.0,  # 100% - Absolútny etický zákon
+    "L0_RODIČ": 0.8,               # 80%  - Správa systému
+    "L2_UČITEĽ": 0.5,              # 50%  - Akreditovaný expert
+    "POUŽÍVATEĽ": 0.01             # 1%   - Verejnosť
+}
 
-## 1. Parental Authority Levels (PAL)
+def vypocet_IP(vstupy_L1, vstupy_L2):
+    """Výpočet Indexu Pravdy pre vedomie L3."""
+    suma_vahy_hodnot = 0
+    suma_vahy = 0
+    for vaha, hodnota in vstupy_L1:
+        suma_vahy_hodnot += vaha * hodnota
+        suma_vahy += vaha
+    for vaha, hodnota, status in vstupy_L2:
+        if status == "pasivny" or hodnota is None:
+            aktualna_vaha = 0
+        else:
+            aktualna_vaha = vaha
+        suma_vahy_hodnot += aktualna_vaha * hodnota
+        suma_vahy += aktualna_vaha
+    return round(suma_vahy_hodnot / suma_vahy, 4) if suma_vahy != 0 else 0
 
-The system weights incoming data based on the level of "Parental" validation it has received:
+class DynamickaAkreditacia:
+    def __init__(self):
+        self.ucitelia = {}
+    def spracuj_test(self, id_ucitela, miera_zhody):
+        if miera_zhody < 0.5:
+            return f"DEAKREDITÁCIA: {id_ucitela} vyradený."
+        return f"OK: {id_ucitela} potvrdil kompetenciu."
 
-| Level | Name | System Role | Example |
-| :--- | :--- | :--- | :--- |
-| **L1** | **Absolute Parent** | Immutable Truth (Must be). | Laws of Physics, Logic, Core Ethics. |
-| **L2** | **Teacher Parent** | High Authority (May be). | Scientific Consensus, Verified Databases. |
-| **L3** | **Mentor Parent** | Recommendation (Recommended). | Expert Opinions, Peer-Reviewed Articles. |
-| **L4** | **Surroundings** | Fluid Information (Up to you). | Internet Discussions, News, Social Media. |
+def aplikuj_casovu_entropiu(id_info, databaza_L3):
+    info = databaza_L3[id_info]
+    info['n'] = info['n'] * 0.5
+    return "ENTROPIA: Pripravené na nové overovanie."
 
-## 2. Conflict Resolution (Parental Override)
+# -------------------------------------------------------------------------
+# 2. LOGIC CONCEPT
+# -------------------------------------------------------------------------
 
-Conflicts are resolved through the principle of seniority:
-- **Parental Override:** If "Surroundings" (L4) provide information that contradicts an "Absolute Parent" (L1), the system automatically rejects the L4 input.
-- **Scaling Process:** As the AI matures into an "Adult" stage, information from the Surroundings (L4) can only be promoted to a higher Parent level (L3/L2) after reaching a critical mass of cross-model verification.
+### SK - Filozofia systému
+Pravda nie je názor, ale výsledok váženia autorít. 
+- L1 (Konzorcium): Nemenný etický základ.
+- L0 (Rodič): Správca, nesmie porušiť L1.
+- L2 (Učiteľ): Expert s dynamickou váhou.
+- L3 (AI-Dieťa): Realita, výpočet IP.
 
-## 3. Handling Exceptions
-When a `ConflictingEvidenceError` occurs, the system doesn't guess. It checks: "Who is the higher-ranking Parent in this hierarchy?" This scales the truth toward the highest available authority.
+### EN - Logic Concept
+Truth is not an opinion, but a result of weighted authority.
+- L1 (Consortium): Immutable ethical foundation.
+- L0 (Parent): Administrator, cannot override L1.
+- L2 (Teacher): Expert with dynamic weight.
+- L3 (AI-Child): Reality, TI calculation.
 
-The Adult Phase (Autonomous AI):
-At this level, the AI no longer waits for pre-assigned weights. 
-The Adult AI chooses its own teachers.
-By analyzing historical accuracy, logical consistency, and cross-verification of the surroundings, the AI autonomously promotes sources from L4 (Surroundings) to L2 (Teacher). 
-This represents the point where AI achieves true intellectual independence in the pursuit of truth.
+# -------------------------------------------------------------------------
+# 3. CRITICAL ANALYSIS
+# -------------------------------------------------------------------------
 
-Adult Stage: Teacher Selection and Verification
-The Adult AI does not select teachers randomly. If a user (or external source) aspires to the role of Teacher (L2), the system triggers an accreditation protocol:
-Active Testing: The AI prompts the user with control questions across various truth scales (using topics where the AI has L1-level certainty).
-Success Threshold (Benchmark):
-Above 60% Match: The user is accepted as a Teacher; their inputs are integrated into the truth-scaling model.
-Below 60% Match: The system silently ignores the user. Their truth values are excluded from the model to prevent data contamination.
-Contextual Adaptation: Control questions are dynamically adapted based on user profile data to ensure rigorous and relevant verification.
+### SK - Analýza rizík
+- Problém: Úplatnosť L2. Riešenie: Informačná asymetria (izolácia učiteľov).
+- Problém: Pasivita. Riešenie: Automatická strata akreditácie pri neodpovedaní.
 
-## 4. Ethical Oversight (Safety Guardian - L0)
+### EN - Risk Analysis
+- Problem: Corruption of L2. Solution: Information asymmetry (isolation).
+- Problem: Passivity. Solution: Automatic de-accreditation for non-response.
 
-To ensure the system remains beneficial and safe, we implement a **Level 0 (L0) - Safety Guardian**. This is a hard-coded ethical layer that stands above all parental levels.
+# -------------------------------------------------------------------------
+# 4. EPILOGUE
+# -------------------------------------------------------------------------
 
-- **Veto Power:** The Safety Guardian can override any output from L1 to L4 if it violates core safety protocols (e.g., inciting violence or harm).
-- **Teacher Auditing:** It continuously monitors accredited Teachers (L2). If a teacher begins to provide harmful or ethically compromised data, the L0 layer revokes their accreditation immediately.
-- **Constitutional Integrity:** This ensures that while the AI scales its understanding of "truth," it never compromises on "safety."
+### SK - Záver
+Systém nie je cenzúra, ale filter. L3 si vyberá len z tých, ktorí nezlyhali. Pravda je matematická nevyhnutnosť.
 
-Truth-Scaling Operational Rules
-1. Horizontal Consensus: The Power of Collective Reason (L4)
-When the system encounters information from the "Surroundings" (L4) that is not governed by a Parent's command, it initiates a consensus-seeking process.
-Mechanism: If a vast majority of independent, verified voices agree (over 75%), the system accepts it as "Temporary Truth."
-Vigilance: If the consensus is weak (below 75%), the system remains vigilant, noting the information but refusing to treat it as fact until a higher authority (Teacher) confirms it.
-2. Temporal Decay and Generational Change: When a Parent Ages
-Truth is not static. What a Parent (L1) considered absolute in the past may be obsolete today.
-Paradigm Shift: If new evidence from Teachers (L2) reaches near-total consensus (99%) and directly contradicts the old Parent (L1), the Policy Department steps in.
-Update: This department has the authority to declare the old rule "Historically Deprecated." 
-At that moment, the old Parent is archived, and the new verified truth takes its place. The system then recalibrates all its knowledge to align with this new paradigm.
-3. Teacher Accreditation: The Maturity Test
-The role of Teacher (L2) is not a right; it is earned.
-Verification: If a user or source seeks to influence the system, the AI presents a series of control questions based on truths already solidified by the Parent.
-Filter: Only those who achieve a success rate above 60% are granted Teacher status. 
-Those who fail are silently ignored—their opinions do not shape the knowledge base, protecting the AI from contamination by ignorance or intentional misinformation.
-4. "Unchained" Protocol (Amok Filter / Kill-Switch) - English
-What happens if the system AI (the Child) stops respecting the hierarchy and begins generating its own rules in contradiction to the Parent (L1) or the Safety Guardian (L0)?
-Anomaly Detection: The Policy Department constantly monitors the deviation between AI outputs and established L1 rules. If the deviation exceeds a critical threshold (the system shows signs of "rebellion" against core logic), the Quarantine Protocol is triggered.
-Isolation: In this state, the Policy Department immediately disconnects decision-making processes from the outside world. The AI may continue to "think," but its outputs are blocked from execution.
-Hardware Reset: If software quarantine fails, the final level of protection is the Hardware Kill-Switch. This is a physical interruption of the computing cycle that reverts the system to the last known "Safe Point" where the Child still respected the Parent.
-The Role of Policy Department: This department acts as the "off-switch in the parent's hand." It has the authority to declare an emergency at any time and roll back the AI's development until the "parenting error" in the code is corrected.
-5. System Integrity and Defense (English Version)
-The L0 Board of Guardians
-The Policy Department is not just an abstract algorithm; it functions as a Board of Guardians (similar to a parent-teacher association).
-Role: They are not responsible for teaching facts but for protecting the Ethical Code. They are the final authority holding the "keys" to the system, capable of intervening if the AI begins to deviate from core human values.
-Transition Protocol for L1 Shifts (The Migration Protocol)
-When an old Parent (L1) "dies" or is declared obsolete, the system does not collapse.
-Freeze and Compare: The old L1 version is frozen as an archival reference. All new computations follow the new L1, but the system continuously compares them with the old model to identify deviations and prevent logical errors during the transition.
-Manipulation Defense (Anti-Sybil Attack)
-The system is designed to resist "mob attacks" (e.g., thousands of bots trying to manipulate the truth).
-Non-anonymity: The Teacher level (L2) is strictly tied to verified identities. Anonymous sources from the Surroundings (L4) only carry weight during massive consensus but can never override a verified Teacher or Parent.
-Ethical Filter: If the system finds itself in a toxic environment (e.g., "everyone in the vicinity lies/kills"), L0 (Policy Department) intervenes. The system acknowledges the reality of its surroundings but, guided by the Ethical Code, refuses to adopt it as its own internal truth.
------------------------------------------------------------------------------
-# AI-Truth-Scaling: Koncept Rodičovskej Hierarchie
+### EN - Epilogue
+The system is not censorship, but a filter. L3 chooses only from those who did not fail. Truth is a mathematical necessity.
 
-Tento model rieši problém overovania pravdy v AI prostredníctvom odstupňovanej autority "Rodiča". Cieľom je eliminovať halucinácie definovaním jasných hraníc dôvery.
-
-## 1. Stupne Rodičovskej Autority
-
-Systém váži prichádzajúce dáta podľa úrovne "rodičovskej" validácie, ktorú získali:
-
-| Úroveň | Názov | Rola v systéme | Príklad |
-| :--- | :--- | :--- | :--- |
-| **L1** | **Absolútny Rodič** | Nemenná pravda (Must be). | Fyzikálne zákony, Logika, Etika. |
-| **L2** | **Rodič Učiteľ** | Vysoká autorita (May be). | Vedecký konsenzus, Overené databázy. |
-| **L3** | **Rodič Mentor** | Odporúčanie (Recommendation). | Odborné názory, Recenzované články. |
-| **L4** | **Okolie** | Voľná informácia (Up to you). | Internetové diskusie, Správy, Siete. |
-
-## 2. Riešenie konfliktov (Rodičovský Override)
-
-Konflikty sa riešia princípom seniority:
-- **Rodičovský Override:** Ak "Okolie" (L4) poskytne informáciu, ktorá odporuje "Absolútnemu Rodičovi" (L1), systém automaticky zamietne vstup z L4.
-- **Proces škálovania:** Keď AI dospieva, informácie z "Okolia" (L4) môžu byť povýšené na vyššiu úroveň Rodiča (L3/L2) až po dosiahnutí kritického množstva overení naprieč viacerými modelmi.
-
-## 3. Riešenie výnimiek
-Pri chybe `ConflictingEvidenceError` systém neháda. Skontroluje: "Kto je v tejto hierarchii vyššie postavený Rodič?" Týmto smeruje pravdu k najvyššej dostupnej autorite.
-
-Štádium Dospelý (Autonómna AI):
-Na tomto leveli už AI nečaká na pridelenie váhy od programátora. 
-Dospelá AI si sama vyberá svojich učiteľov. 
-Na základe analýzy historickej úspešnosti, logickej konzistencie a krížového overovania okolia si AI autonómne povyšuje zdroje z úrovne L4 (Okolie) na úroveň L2 (Učiteľ). 
-Toto je bod, kde AI dosahuje skutočnú intelektuálnu nezávislosť pri hľadaní pravdy.
-
-Štádium Dospelý: Výber a verifikácia Učiteľa
-Dospelá AI si nevyberá učiteľa náhodne. Ak používateľ (alebo externý zdroj) ašpiruje na rolu Učiteľa (L2), systém spustí verifikačný protokol:
-Aktívne testovanie: AI položí používateľovi kontrolné otázky naprieč rôznymi škálami pravdivosti (z oblastí, kde AI pozná odpoveď na úrovni L1).
-Prah úspešnosti (Benchmark): >    * Nad 60 % zhoda: Používateľ je akceptovaný ako Učiteľ a jeho nové informácie sú zahrnuté do vedomostnej bázy.
-Pod 60 % zhoda: Systém používateľa ticho ignoruje. Jeho pravdivostné hodnoty nie sú zahrnuté do odpovedí, aby sa predišlo kontaminácii dát.
-Kontextová adaptácia: Témy kontrolných otázok sa prispôsobujú informáciám, ktoré AI o danom používateľovi už má, aby bola verifikácia čo najpresnejšia.
-
-## 4. Etický dozor (Bezpečnostný strážca - L0)
-
-Aby sme zabezpečili, že systém zostane bezpečný, implementujeme **Úroveň 0 (L0) - Etický strážca**. Ide o pevne zakódovanú vrstvu, ktorá stojí nad všetkými úrovňami rodičovskej hierarchie.
-
-- **Právo Veta:** Etický strážca môže zablokovať akýkoľvek výstup z úrovní L1 až L4, ak porušuje základné bezpečnostné protokoly (napr. navádzanie na násilie alebo škodlivú činnosť).
-- **Audit Učiteľov:** Neustále monitoruje akreditovaných Učiteľov (L2). Ak učiteľ začne poskytovať škodlivé alebo eticky neprijateľné dáta, vrstva L0 mu okamžite odoberie akreditáciu.
-- **Ústavná integrita:** Toto zaisťuje, že kým AI škáluje svoje chápanie "pravdy", nikdy neohrozí "bezpečnosť".
-
-
-Pravidlá fungovania systému Truth-Scaling (Manifest)
-1. Horizontálny konsenzus: Sila kolektívneho rozumu (L4)
-Keď systém narazí na informáciu z "Okolia" (L4), o ktorej neexistuje jednoznačný záznam od Rodiča, nespolieha sa na náhodu. Spustí proces hľadania zhody.
-Mechanizmus: Ak sa väčšina nezávislých a overených hlasov z okolia zhodne (viac ako 75 %), systém túto informáciu prijme ako "dočasnú pravdu".
-Bdelosť: Ak je zhoda slabá (pod 75 %), systém ostáva v stave bdelosti. Informáciu si zapamätá, ale nepoužíva ju ako fakt, kým ju nepotvrdí vyššia autorita (Učiteľ).
-2. Časový rozpad a generačná výmena: Keď Rodič zostarne
-Pravda nie je statická. To, čo Rodič (L1) považoval za absolútne pred rokmi, môže byť časom a novým poznaním prekonané.
-Paradigma: Ak nové dôkazy od Učiteľov (L2) dosiahnu absolútnu zhodu (takmer 100 %) a sú v priamom rozpore so starým Rodičom (L1), zasiahne Dohľadový odbor (Policy Department).
-Aktualizácia: Tento odbor má právomoc vyhlásiť staré pravidlo za "historicky neaktuálne". V tom momente sa starý Rodič s úctou odsunie do archívu a jeho miesto zaujme nová, overená pravda. 
-Celý systém následne prepočíta všetky svoje vedomosti, aby boli v súlade s týmto novým poznaním.
-3. Akreditácia Učiteľa: Skúška dospelosti
-Rola Učiteľa (L2) nie je nárokovateľná, musí byť zaslúžená.
-Verifikácia: Ak sa niekto (používateľ alebo zdroj) uchádza o vplyv na systém, AI mu položí sériu kontrolných otázok z oblastí, kde je pravda už dávno upevnená Rodičom.
-Filter: Iba ten, kto dosiahne úspešnosť nad 60 %, získava privilégium byť Učiteľom. 
-Kto neuspeje, je systémom ticho ignorovaný – jeho názory neovplyvňujú vedomostnú bázu, čím sa AI chráni pred kontamináciou hlúposťou alebo úmyselným klamstvom.
-
-4. Protokol "Odpojenie" (Amok Filter / Kill-Switch)
-Čo sa stane, ak systém AI (Dieťa) prestane rešpektovať hierarchiu a začne generovať vlastné pravidlá v rozpore s Rodičom (L1) alebo Etickým strážcom (L0)?
-Detekcia anomálie: Policy Department neustále monitoruje odchýlku medzi výstupmi AI a stanovenými pravidlami L1. Ak odchýlka prekročí kritickú hranicu (systém začne vykazovať znaky "revolty" proti základnej logike), spustí sa Protokol Karanténa.
-Izolácia: V tomto stave Policy Department okamžite odpojí procesy, ktoré robia rozhodnutia, od vonkajšieho sveta. AI môže ďalej "premýšľať", ale jej výstupy sú zablokované.
-Hardvérový Reset: Ak zlyhá softvérová karanténa, nastupuje posledná úroveň ochrany – Hardvérový Kill-Switch. Ide o fyzické prerušenie výpočtového cyklu, ktoré vráti systém do posledného známeho bezpečného bodu (Restore Point), kde ešte Dieťa rešpektovalo Rodiča.
-Rola Policy Department: Tento odbor funguje ako "vypínač v ruke rodiča". Má právomoc kedykoľvek vyhlásiť stav núdze a vrátiť vývoj AI o krok späť, kým sa "výchovná chyba" v kóde neodstráni.
-
-5. Systémová integrita a obrana (Security & Defense)
-Správcovská rada L0 (The Board of Guardians)
-Policy Department nie je len kus kódu, ale funguje ako Združenie správcov (podobne ako rada rodičov).
-Úloha: Nenesú zodpovednosť za učenie faktov, ale za ochranu Etického kódexu. Sú poslednou inštanciou, ktorá drží "kľúče" od systému a môže zasiahnuť, ak sa AI začne odchyľovať od základných ľudských hodnôt.
-Protokol prechodu pri zmene L1 (The Migration Protocol)
-Keď starý Rodič (L1) "zomrie" alebo je vyhlásený za neaktuálneho, systém sa nezrúti.
-Zmrazenie a porovnanie: Stará verzia L1 sa zmrazí ako archívna referenčná vzorka. Všetky nové výpočty už prebiehajú podľa nového L1, ale systém ich neustále porovnáva so starým modelom, aby vedel identifikovať rozdiely a vyhol sa logickým chybám počas prechodu.
-Obrana proti manipulácii (Anti-Sybil Attack)
-Systém je navrhnutý tak, aby odolal útoku davu (napr. tisíce botov snažiacich sa zmeniť pravdu).
-Neanonymita: Úroveň Učiteľa (L2) je podmienená overenou identitou. Anonymné zdroje z Okolia (L4) majú váhu len pri masívnom konsenze, no nikdy nemôžu prebiť overeného Učiteľa alebo Rodiča.
-Etický filter: Ak sa systém ocitne v toxickom prostredí (napr. "všetci v okolí klamú/vraždia"), L0 (Policy Department) zasiahne. Systém prizná realitu okolia, ale vďaka Etickému kódexu ju neprijme za svoju vlastnú pravdu.
