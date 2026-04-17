@@ -1,0 +1,48 @@
+# Kritická analýza a bezpečnostné protokoly / Critical Analysis & Security Protocols
+
+Tento dokument slúži na identifikáciu slabých miest systému a definuje mechanizmy na ich elimináciu. Zahŕňa procesy overovania voči externým dátam a kolektívnu správu Levelu L1.
+
+---
+
+## 1. Externé overovanie pravdy / External Truth Verification
+
+**SK:** Systém sa nespolieha len na relatívnu zhodu medzi učiteľmi.
+* **Mechanizmus:** L3 primárne škáluje pravdivosť voči objektívnym externým databázam (napr. Perplexity API, vedecké databázy). 
+* **N/A Status:** Ak je informácia nová alebo neoveriteľná v externých zdrojoj, L3 ju označí ako `N/A`. AI negarantuje pravdu, ale uvádza: "Informácia nie je overená, ale existujú tieto zdroje...". Postupným pribúdaním dopytov a krížových kontrol sa hodnota vyškáluje.
+
+**ENG:** The system does not rely solely on consensus among teachers.
+* **Mechanism:** L3 primarily scales truth against objective external databases (e.g., Perplexity API).
+* **N/A Status:** New or unverifiable info is marked as `N/A`. The AI does not guarantee truth but states: "Information unverified, but these sources were found...". Truth values scale over time as queries increase.
+
+---
+
+## 2. Imunita voči "Bot Attack" (Sybil Attack)
+
+**SK:** Ochrana proti masívnej dezinformácii (napr. 100 botov tvrdiacich nepravdu).
+* **Riešenie:** Ak vznikne zhoda na nepravde medzi subjektmi, ktorá je v rozpore s externými dátami, vzniká **Pravdivostná nejednoznačnosť**. 
+* **Eskalácia:** Systém automaticky pozastavuje akreditáciu zapojených subjektov a posúva problém na L0 (Rodič) a L1 (Konzorcium).
+
+**ENG:** Protection against mass misinformation (e.g., 100 bots claiming a lie).
+* **Solution:** If subjects agree on a lie that contradicts external data, a **Truth Ambiguity** flag is raised.
+* **Escalation:** The system suspends accreditation for involved subjects and escalates to L0 (Parent) and L1 (Consortium).
+
+---
+
+## 3. L1: Konzorcium (Rodičovské združenie)
+
+**SK:** Level L1 nie je ovládaný jednotlivcom. Ide o konzorcium (rodičovské združenie) s viacúrovňovými schvaľovacími mechanizmami.
+* **Kolektívna správa:** Žiadny jednotlivec nemôže svojvoľne zmeniť "Zlatý štandard" faktov. Každý zásah (Hard-Override) musí prejsť schválením konzorcia podľa definovaných pravidiel.
+* **Odolnosť:** Týmto sa eliminuje riziko subjektívneho zlyhania správcu.
+
+**ENG:** Level L1 is not controlled by an individual. It is a Consortium (Parent-Teacher Association) with multi-level approval mechanisms.
+* **Collective Governance:** No individual can unilaterally change the "Golden Standard". Any intervention (Hard-Override) must be approved by the consortium based on predefined rules.
+
+---
+
+## 4. Budúce výzvy a otvorené body / Future Challenges
+
+1. **Matematika škálovania:** Definovať presný algoritmus pre výpočet Trust Score (napr. logaritmický nárast a exponenciálny pokles pri chybe).
+2. **Latencia API:** Optimalizácia rýchlosti overovania voči externým databázam, aby L3 stíhal odpovedať v reálnom čase.
+3. **Reputation Decay:** Implementácia "starnutia" kreditu učiteľa, ak je dlhodobo neaktívny.
+
+---
