@@ -1,0 +1,36 @@
+1. L0: Rodič (Root Controller)
+  Funkcia: Arbitráž a Nastavenia / Arbitration & Settings
+    SK: nastav_systemove_parametre() – Definuje globálne konštanty (frekvencia testov, limity pre učiteľov). vykonaj_manualne_ucenie() – Procedúra, ktorú vyvolá L0, ak L3 nahlási patovú situáciu v pravdivosti.
+    ENG: set_system_parameters() – Defines global constants (test frequency, teacher limits). execute_manual_learning() – A procedure triggered by L0 when L3 reports a stalemate in truth-scaling.
+  Funkcia: Správa Subjektov / Subject Management
+    SK: finalna_degradacia() – Rozhoduje o trvalom ignorovaní subjektu, ktorý opakovane zlyhal v imunitnom teste.
+    ENG: final_degradation() – Decides on permanently ignoring a subject that has repeatedly failed the immunity test.
+
+2. L1: Policy Department (The Auditor)
+  Funkcia: Absolútna Korekcia / Hard-Override
+    SK: prikaz_opravy() – Ak L1 zistí nesprávnu informáciu, vygeneruje príkaz, ktorý prepíše databázu L3 bez ohľadu na škálovanie.
+    ENG: correction_command() – If L1 detects incorrect information, it generates a command that overwrites the L3 database regardless of scaling.
+
+3. L2: Kompetencie (Domain Expert)
+  Funkcia: Výber Expertízy / Expertise Selection
+    SK: vyber_testovaciu_otazku() – Na základe zamerania subjektu vyberie z "Listu neoverených info" relevantnú otázku na testovanie.
+    ENG: select_test_question() – Based on the subject's focus, it selects a relevant question for testing from the "Unverified Info List."
+
+4. L3: Žiak (The Student Agent)
+  Funkcia: Vstupná Procedúra / Input Procedure
+    SK: spracuj_vstup() – Prijme dáta, cez L0 určí, či ide o .tvrdenie, a priradí mu prvotnú škálu pravdivosti (0-10) na základe dostupných faktov.
+    ENG: process_input() – Receives data, uses L0 to determine if it's a .statement, and assigns an initial truth scale (0-10) based on available facts.
+  Funkcia: Výstupná Procedúra / Output Procedure
+    SK: moduluj_odpoved() – Formátuje výslednú vetu. K holej odpovedi pridá prefix podľa pravdivostného indexu (napr. "Vysoko pravdepodobne...").
+    ENG: modulate_response() – Formats the final sentence. Adds a prefix to the raw answer based on the truth index (e.g., "Highly probable...").
+  Funkcia: Overovacia Procedúra / Verification Procedure
+    SK: vykonaj_test_subjektu() – Aktívne osloví neanonymný subjekt otázkou "Myslíš si, že...". Spracuje odpoveď a aktualizuje Trust_Score subjektu.
+    ENG: execute_subject_test() – Actively engages a non-anonymous subject with the question "Do you think that...". Processes the answer and updates the subject's Trust_Score.
+  Funkcia: Škálovanie Pravdivosti / Truth Scaling
+    SK: aktualizuj_skalu() – Akreditovaný učiteľ poskytne info -> L3 prepočíta pravdivosť uloženej informácie podľa kreditu daného učiteľa.
+    ENG: update_scale() – An accredited teacher provides info -> L3 recalculates the truthfulness of stored information according to that teacher's credit.
+
+5. Spoločné / Shared (L0 & L3)
+  Funkcia: Detekcia Rozporu / Conflict Detection
+    SK: identifikuj_nejednoznacnost() – Ak sa informácie od viacerých učiteľov výrazne líšia, zapíše túto informáciu do "Listu nejednoznačnosti" pre L0.
+    ENG: identify_ambiguity() – If information from multiple teachers differs significantly, it logs this into the "Ambiguity List" for L0.
