@@ -6,74 +6,43 @@ HLADINY_AUTORITY = {
     "L0_RODIČ": 0.8,               # 80%  - Správa systému
     "L2_UČITEĽ": 0.5,              # 50%  - Akreditovaný expert
     "POUŽÍVATEĽ": 0.01             # 1%   - Verejnosť
-}
+🛠 Technická Implementácia Hierarchie
+Systém definuje váhu pravdy prostredníctvom exaktných kódových mechanizmov, kde je programová logika plne podriadená hierarchii autority.
 
-def vypocet_IP(vstupy_L1, vstupy_L2):
-    """Výpočet Indexu Pravdy pre vedomie L3."""
-    suma_vahy_hodnot = 0
-    suma_vahy = 0
-    for vaha, hodnota in vstupy_L1:
-        suma_vahy_hodnot += vaha * hodnota
-        suma_vahy += vaha
-    for vaha, hodnota, status in vstupy_L2:
-        if status == "pasivny" or hodnota is None:
-            aktualna_vaha = 0
-        else:
-            aktualna_vaha = vaha
-        suma_vahy_hodnot += aktualna_vaha * hodnota
-        suma_vahy += aktualna_vaha
-    return round(suma_vahy_hodnot / suma_vahy, 4) if suma_vahy != 0 else 0
+L1 Konzorcium (1.0 / 100%): Najvyšší etický a kontrolný orgán. Definuje "Zlatý štandard". Príkazy z L1 manuálne "ukotvujú" pravdu pomocou extrémnej fixácie parametra n, čím vytvárajú imunitu voči budúcim výkyvom.
 
-class DynamickaAkreditacia:
-    def __init__(self):
-        self.ucitelia = {}
-    def spracuj_test(self, id_ucitela, miera_zhody):
-        if miera_zhody < 0.5:
-            return f"DEAKREDITÁCIA: {id_ucitela} vyradený."
-        return f"OK: {id_ucitela} potvrdil kompetenciu."
+L0 Majiteľ / Rodič (0.8 / 80%): Výkonná moc uzla. L0 nastavuje parametre akreditácie, prísnosť filtrov a spravuje databázu učiteľov. Má právo "Hard Vstupu", ktorým prebíja sporné dáta.
 
-def aplikuj_casovu_entropiu(id_info, databaza_L3):
-    info = databaza_L3[id_info]
-    info['n'] = info['n'] * 0.5
-    return "ENTROPIA: Pripravené na nové overovanie."
+L3 Systém Pravdy (Truth Scaling): Aktívne jadro, ktoré počíta Index Pravdy (IP), identifikuje odchýlky a reportuje ich do databázy sporných záznamov pre L0. Obsahuje Sémantický Bypass, ktorý filtruje vstupy a spúšťa proces "Zvedavého dieťaťa".
 
-# -------------------------------------------------------------------------
-# 2. LOGIC CONCEPT
-# -------------------------------------------------------------------------
+L2 Učiteľ / Expert (0.5 / 50%): Akreditovaný uzol, ktorého váha v systéme je dynamická. L2 nahliada do databázy akreditácií (spravovanej L0) a jeho vplyv na IP sa mení podľa histórie zhody s realitou.
 
-### SK - Filozofia systému
-Pravda nie je názor, ale výsledok váženia autorít. 
-- L1 (Konzorcium): Nemenný etický základ.
-- L0 (Rodič): Správca, nesmie porušiť L1.
-- L2 (Učiteľ): Expert s dynamickou váhou.
-- L3 (AI-Dieťa): Realita, výpočet IP.
+Kľúčové procedúry:
+Sémantický Bypass (L3): Filtruje prichádzajúce dáta. Ak zachytí tvrdenie/otázku, aktivuje validačný proces. Pri vlastných otázkach systému (učenie) bypass nezasahuje.
 
-### EN - Logic Concept
-Truth is not an opinion, but a result of weighted authority.
-- L1 (Consortium): Immutable ethical foundation.
-- L0 (Parent): Administrator, cannot override L1.
-- L2 (Teacher): Expert with dynamic weight.
-- L3 (AI-Child): Reality, TI calculation.
+Dynamická Akreditácia (L0 -> L2): L0 určuje mantinely. Ak priemerná zhoda experta klesne pod nastavenú hranicu, systém ho vyradí.
 
-# -------------------------------------------------------------------------
-# 3. CRITICAL ANALYSIS
-# -------------------------------------------------------------------------
+Reporting Disproporcií: Všetky kritické odchýlky sú okamžite presúvané do databázy sporných informácií na finálne posúdenie Rodičovi (L0).
 
-### SK - Analýza rizík
-- Problém: Úplatnosť L2. Riešenie: Informačná asymetria (izolácia učiteľov).
-- Problém: Pasivita. Riešenie: Automatická strata akreditácie pri neodpovedaní.
+Časová Entropia: Zabezpečuje flexibilitu vedomostí tým, že staršie dáta postupne strácajú váhu (n * 0.5), čím umožňujú novú konfrontáciu s realitou.
 
-### EN - Risk Analysis
-- Problem: Corruption of L2. Solution: Information asymmetry (isolation).
-- Problem: Passivity. Solution: Automatic de-accreditation for non-response.
+🇬🇧 ENGLISH VERSION (EN)
+🛠 Technical Hierarchy Implementation
+The system defines the weight of truth through exact code mechanisms, where program logic is strictly subordinated to the authority hierarchy.
 
-# -------------------------------------------------------------------------
-# 4. EPILOGUE
-# -------------------------------------------------------------------------
+L1 Consortium (1.0 / 100%): The highest ethical and control body. It defines the "Golden Standard." L1 commands manually "anchor" the truth using extreme fixation of the n parameter, creating immunity against future fluctuations.
 
-### SK - Záver
-Systém nie je cenzúra, ale filter. L3 si vyberá len z tých, ktorí nezlyhali. Pravda je matematická nevyhnutnosť.
+L0 Owner / Parent (0.8 / 80%): The executive power of the node. L0 sets accreditation parameters, filter strictness, and manages the teacher database. It holds the right of "Hard Input" to override disputed data.
 
-### EN - Epilogue
-The system is not censorship, but a filter. L3 chooses only from those who did not fail. Truth is a mathematical necessity.
+L3 Truth System (Truth Scaling): The active core that calculates the Truth Index (IP), identifies deviations, and reports them to the disputed records database for L0. It contains the Semantic Bypass, which filters inputs and triggers the "Curious Child" process.
 
+L2 Teacher / Expert (0.5 / 50%): An accredited node whose weight in the system is dynamic. L2 consults the accreditation database (managed by L0), and its influence on IP changes based on its history of alignment with reality.
+
+Key Procedures:
+Semantic Bypass (L3): Filters incoming data. If it detects a statement/question, it activates the validation process. The bypass does not interfere with the system's own inquiries (learning).
+
+Dynamic Accreditation (L0 -> L2): L0 defines the boundaries. If an expert's average alignment falls below the set threshold, the system removes them.
+
+Disproportionality Reporting: All critical deviations are immediately moved to the disputed information database for final assessment by the Parent (L0).
+
+Temporal Entropy: Ensures knowledge flexibility by gradually reducing the weight of older data (n * 0.5), allowing for new confrontation with reality.
