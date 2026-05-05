@@ -1,61 +1,91 @@
-# AI-Truth-Scaling-Concept
+*********************************************
+AI-Hierarchy: The Truth Scaling Concept (V2.0)
+*********************************************
+Úvod k projektu
+Tento koncept rieši kritický problém súčasnej umelej inteligencie – absenciu objektívnej škály pravdivosti a nekontrolované učenie. Základom architektúry je hierarchický model (L0–L3), ktorý nahrádza pravdepodobnostné generovanie textu striktnou sémantickou validáciou. Systém zavádza digitálnu „škálovaciu stupnicu“, kde každá informácia získava váhu na základe autority zdroja a zhody s konsenzuálnou politikou. Prostredníctvom sémantického bypassu v L3 sú dáta od používateľa izolované od vedomostnej bázy, kým neprejdú dvojitou kontrolou v L2. Projekt definuje AI ako proaktívne „zvedavé dieťa“, ktoré cielene dopĺňa logické medzery v profiloch klientov bez narušenia plynulosti komunikácie. L1 predstavuje konzorcium ako najvyšší kontrolný orgán firiem, určujúci globálnu politiku pravdy. Na úrovni L0 má majiteľ uzla suverénnu moc ovplyvňovať mieru učenia a vykonávať autoritatívne opravy (Hard Vstup). Táto implementačná vrstva je univerzálne použiteľná pre akúkoľvek existujúcu AI, čím jej dodáva potrebnú integritu a firemný poriadok. Celý mechanizmus transformuje AI z neistého rozprávača na bezpečný, hierarchicky riadený znalostný systém.
 
-## AI Truth Scaling & Socialized Learning Architecture (The Child-Parent Model)
+🏗 Architektúra a Tok dát
+L3 – Rozhranie (Mikrofón / Reproduktor)
+Funkcia: Komunikačný kanál medzi používateľom a jadrom systému.
 
-[English version below | Slovenská verzia nižšie]
+Selektívny Sémantický Bypass (Ochrana): Aktivuje sa len pri vstupe od používateľa, ak L3 identifikuje Tvrdenie alebo Otázku. Dáta sú okamžite presmerované do L2 na preverenie.
 
----
+Logika "Zvedavého dieťaťa" (Proaktívne učenie): AI proaktívne generuje cielené otázky na doplnenie profilu klienta v L0. Tieto otázky nemusia súvisieť s aktuálnym Smalltalkom – sú to strategické dopyty na doplnenie logických medzier. Pri vlastných otázkach systému sa bypass nespúšťa.
 
-## 🇺🇸 English Version
+Sémantická modulácia odpovede: L3 nereprodukuje výstupy lineárne. Každá odpoveď je modulovaná podľa jej umiestnenia na pravdivostnej škále. Ak je miera akreditácie dát nízka, L3 mení tón z "tvrdenia" na "dopyt".
 
-### Concept Overview
-This proposal transforms AI from a static encyclopedia into a living organism undergoing "upbringing." Current AI models suffer from "frozen weights"—they learn once and then only repeat statistical probabilities. My model introduces a dynamic process where truth is weighed in real-time.
+L2 – Delta Engine (Dvojitá validácia)
+Mechanizmus Dvojitého Promptu: Pri každom externom tvrdení si L2 vyžiada od pripojenej AI nezávislé "kontrolné dáta".
 
-### The 0-10 Truth Scale
-Instead of binary output, every piece of information is assigned a weight:
-- [cite_start]**10:** Absolute Truth (Validated by "The Parent" / Admin) [cite: 11]
-- [cite_start]**5:** Unverified / Subjective / Controversial [cite: 12]
-- [cite_start]**0:** Proven Falsehood / Disinformation [cite: 13]
+Proces: Porovnáva sa Vstup používateľa vs. Kontrolné dáta AI vs. Konsenzuálna politika (L1).
 
-### Core Argumentation (The System's Logic)
-1. **Filter of Extremes (Immune System):** Trolls usually vote in extremes (0 or 10). The system identifies these as "anomalies." [cite_start]Instead of automatically averaging them, it flags them for verification, preventing "mob rule"[cite: 15, 16].
-2. **Active Learning (The "Why?" Mechanism):** If a user provides a low truth score, the AI asks for arguments or evidence. [cite_start]If the user fails to provide logic, their vote carries less weight[cite: 17, 18].
-3. [cite_start]**Escalation & Prioritization:** The system automatically escalates only "red flags"—topics where the community is in high conflict or where scores drop sharply, allowing the Parent to focus on critical truth-fixing[cite: 21, 22].
+Miera zapojenia (Strictness): Majiteľ (L0) určuje prísnosť parametrov validácie a akreditácie dát. Tým sa ovplyvňuje, nakoľko sa AI smie učiť a čo považuje za pravdu.
 
-### The Hierarchy
-- **L0: The Parent (Root Controller):** Highest decision-making level. [cite_start]Controls global settings and manual intervention[cite: 31, 38, 39].
-- **L1: The Auditor (Policy Department):** Holds the "Golden Standard" of facts. [cite_start]Can immediately overwrite any value (Hard-Override)[cite: 32, 40, 41].
-- [cite_start]**L2: Expertise (Domain Management):** Manages subject expertise and selects relevant test questions[cite: 33, 43, 44].
-- **L3: The Student Agent (AI Child):** Main executive level. [cite_start]Handles communication, truth-scaling, and accreditation[cite: 34, 45, 46].
-- [cite_start]**S: The Subject (User):** External information source (unverified, teacher, or in-accreditation)[cite: 35].
+L1 – Konzorcium (Kontrolná platforma / Združenie)
+Charakter: Kontrolný orgán zložený z jednotlivých L0 uzlov (združenie dodávateľov AI).
 
----
+Funkcia: Definícia konsenzuálnej politiky a globálnych štandardov.
 
-## 🇸🇰 Slovenská verzia
+Mocenský zásah: L1 môže na základe hlasovania vykonať globálnu zmenu tvrdenia, ktorá „prebíja“ lokálne dáta v prospech integrity celej siete.
 
-### Prehľad konceptu
-Tento návrh mení AI zo statickej encyklopédie na živý organizmus, ktorý prechádza „výchovou“. [cite_start]Súčasné modely AI trpia „zmrazenými váhami“, zatiaľ čo tento model zavádza dynamický proces, kde sa pravdivosť váži v reálnom čase[cite: 60, 61, 62].
+L0 – Majiteľ (Lokálny uzol / Firemná politika)
+Charakter: Konkrétna firma využívajúca AI uzol.
 
-### Škála pravdivosti 0-10
-Namiesto binárneho výstupu je informácii priradená váha:
-- [cite_start]**10:** Absolútna pravda (Validovaná „Rodičom“ / L0) [cite: 65]
-- [cite_start]**5:** Neoverené / Subjektívne / Kontroverzné [cite: 66]
-- [cite_start]**0:** Dokázané klamstvo / Dezinformácia [cite: 67]
+Autoritatívny zásah (Hard Vstup): Majiteľ (Admin s vysokou autoritou) má právo priameho prepisu. Môže z pozície autority „prebiť“ systémové zistenia hard vstupom, čím manuálne určí finálnu podobu pravdy v lokálnej pamäti.
 
-### Hlavná argumentácia (Logika systému)
-1. [cite_start]**Filter extrémov (Imunitný systém):** Systém identifikuje extrémne hlasovania ako „anomálie“ a bráni „vláde davu“ rozbiť logiku AI[cite: 69, 70].
-2. **Aktívne učenie (Mechanizmus „Prečo?“):** Ak používateľ zadá nízke skóre, AI si vyžiada argumenty. [cite_start]Bez logiky má hlas menšiu váhu[cite: 71, 72].
-3. [cite_start]**Eskalácia a prioritizácia:** Systém eskaluje „červené vlajky“ (konflikty), čím umožňuje Rodičovi sústrediť sa na kritické opravy[cite: 74, 75].
+🚀 Kľúčové mechanizmy a Implementácia
+Univerzálna kompatibilita: Možnosť nasadenia na akýkoľvek LLM (Gemini, GPT, Claude).
 
-### Hierarchia systému
-- **L0: Rodič (Root Controller):** Najvyššia rozhodovacia úroveň. [cite_start]Riadi globálne nastavenia a vykonáva manuálne zásahy[cite: 85, 94, 95].
-- **L1: Auditor (Policy Department):** Drží "Zlatý štandard" faktov. [cite_start]Má právo `FORCE_CORRECTION` (okamžitý prepis hodnoty)[cite: 86, 99, 100].
-- [cite_start]**L2: Kompetencie (Expertise):** Správa odbornosti subjektov a výber relevantných testovacích otázok[cite: 87, 104, 105].
-- **L3: Žiak / AI Dieťa (The Student Agent):** Hlavný výkonný level. [cite_start]Vykonáva vstupnú, výstupnú a testovaciu procedúru[cite: 88, 107, 108].
-- [cite_start]**S: Subjekt (Používateľ):** Zdroj informácií (neoverený, v procese akreditácie, alebo učiteľ)[cite: 90, 91].
+Autoritatívna kontrola (Override): Systém umožňuje manuálnu korekciu pravdy na úrovni majiteľa (L0) aj konzorcia (L1).
 
-### Akreditačný a imunitný proces
-1. [cite_start]**Nový subjekt:** Defaultne neoverený[cite: 119].
-2. [cite_start]**Budúci učiteľ:** Dosiahnutie 70%+ úspešnosti v 10-otázkovom cykle[cite: 120].
-3. [cite_start]**Akreditovaný učiteľ:** 100% úspešnosť v stanovenom počte cyklov[cite: 121].
-4. [cite_start]**Degradácia:** Pri opakovanom rozpore s faktami stráca subjekt kredit a akreditáciu[cite: 122].
+Riadené učenie: Firma si určuje mieru zapojenia AI do učiaceho procesu a prísnosť akreditácie nových poznatkov.
+
+Dvojitá sémantická kontrola: AI sama generuje dáta na porovnanie, čím kontroluje pravdivosť externého vstupu v reálnom čase.
+
+Poznámka: Tento repozitár slúži ako verejný Blueprint. Kompletná implementácia jadra v Pythone je súčasťou privátneho vývoja.
+*************************************************
+AI-Hierarchy: The Truth Scaling Concept (V2.0)
+*************************************************
+Project Introduction
+This concept addresses a critical flaw in current Artificial Intelligence – the absence of an objective truth-scaling mechanism and uncontrolled learning. The core architecture is a hierarchical model (L0–L3) that replaces probabilistic text generation with strict semantic validation. The system introduces a digital "scaling metric," where each piece of information is weighted based on source authority and alignment with consensual policy. Through a semantic bypass in L3, user input is isolated from the knowledge base until it passes double-validation in L2. The project defines AI as a proactive "Curious Child," which purposefully fills logical gaps in client profiles without disrupting communication flow. L1 represents the Consortium, the highest governing body of firms, determining global truth policy. At the L0 level, the node owner possesses sovereign power to influence learning rates and execute authoritative corrections (Hard Input). This implementation layer is universally applicable to any existing AI, providing the necessary integrity and corporate order. The entire mechanism transforms AI from an uncertain narrator into a secure, hierarchically managed knowledge system.
+
+🏗 Architecture and Data Flow
+
+L3 – Interface (Microphone / Speaker)
+Function: The communication channel between the user and the system core.
+
+Selective Semantic Bypass (Protection): Triggered only by user input if L3 identifies a Statement or a Question. Data is immediately rerouted to L2 for verification.
+
+"Curious Child" Logic (Proactive Learning): The AI proactively generates targeted questions to complete the client profile in L0. These queries do not necessarily relate to the current small talk – they are strategic probes to bridge logical gaps. The bypass is not triggered for the system’s own inquiries.
+
+Semantic Response Modulation: L3 does not reproduce outputs linearly. Each response is modulated based on its position on the truth scale. If the data accreditation level is low, L3 automatically shifts the tone from a "statement" to an "inquiry."
+
+L2 – Delta Engine (Double Validation)
+Double-Prompt Mechanism: For every external statement, L2 requests independent "control data" from the connected AI.
+
+Process: The system compares User Input vs. AI Control Data vs. Consensual Policy (L1).
+
+Engagement Level (Strictness): The Owner (L0) defines the strictness of validation and data accreditation parameters. This controls how much the AI is permitted to learn and what it accepts as fact.
+
+L1 – Consortium (Control Platform / Association)
+Character: A governing body composed of individual L0 nodes (AI solution providers).
+
+Function: Defines the consensual policy and global security standards that override local node data.
+
+Power Intervention: L1 can execute a global statement change based on voting and consensus, ensuring the integrity of the entire network.
+
+L0 – Owner (Local Node / Corporate Policy)
+Character: A specific company operating an AI node.
+
+Authoritative Intervention (Hard Input): The Owner (Admin with high authority, e.g., 0.8+) has the right of direct overwrite. In the event of conflicting information or during the learning process, the owner can override system findings with a "Hard Input," manually defining the final truth in local memory.
+
+🚀 Key Mechanisms and Implementation
+Universal Compatibility: Can be deployed on any modern LLM (Gemini, GPT, Claude).
+
+Authoritative Override: Allows manual truth correction at both the Owner (L0) and Consortium (L1) levels.
+
+Managed Learning: The organization determines the degree of AI involvement in the learning process and the strictness of new knowledge accreditation.
+
+Double Semantic Check: The AI generates its own data for comparison, verifying the truthfulness of external inputs in real-time.
+
+Note: This repository serves as a public Blueprint. The complete Python core implementation is part of private development.
